@@ -216,6 +216,7 @@
             this.tbOkay.TabIndex = 19;
             this.tbOkay.Text = "Ok";
             this.tbOkay.UseVisualStyleBackColor = true;
+            this.tbOkay.Click += new System.EventHandler(this.tbOkay_Click);
             // 
             // tbCancel
             // 
@@ -225,6 +226,7 @@
             this.tbCancel.TabIndex = 20;
             this.tbCancel.Text = "Cancel";
             this.tbCancel.UseVisualStyleBackColor = true;
+            this.tbCancel.Click += new System.EventHandler(this.tbCancel_Click);
             // 
             // monewjob
             // 
@@ -253,6 +255,7 @@
             this.Controls.Add(this.tbJobID);
             this.Controls.Add(this.lblJobId);
             this.Name = "monewjob";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New/Update Job";
             this.ResumeLayout(false);
             this.PerformLayout();

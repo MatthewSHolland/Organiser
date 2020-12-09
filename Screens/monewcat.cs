@@ -50,13 +50,11 @@ namespace Organiser.Screens
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            
             if (tbCateName.Text == "")
             {
-                MessageBox.Show("Please Enter a Cateogory Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Enter a Category Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             if(Action == "New")
             {
                 Categories cAdd = new Categories(Backend.getCateID(), tbCateName.Text, color);
@@ -67,10 +65,8 @@ namespace Organiser.Screens
                 CateUpd.setCategoryName(tbCateName.Text);
                 CateUpd.setColor(color);
             }
-
             this.Dispose();
         }
-
         private void btnColour_Click(object sender, EventArgs e)
         {
             ColorDialog cd = new ColorDialog();
@@ -81,8 +77,5 @@ namespace Organiser.Screens
             Console.WriteLine(Color.FromArgb(cd.Color.ToArgb()));
             tbColorPrev.BackColor = color;
         }
-
     }
-
-
 }

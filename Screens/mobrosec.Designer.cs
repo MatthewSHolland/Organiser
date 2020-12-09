@@ -94,6 +94,7 @@
             this.Controls.Add(this.btnNewSec);
             this.Controls.Add(this.dgvSecView);
             this.Name = "mobrosec";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "View/Add Security Levels";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSecView)).EndInit();
             this.ResumeLayout(false);

@@ -112,6 +112,7 @@
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnCancel);
             this.Name = "monewcat";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New/Update Category";
             this.ResumeLayout(false);
             this.PerformLayout();

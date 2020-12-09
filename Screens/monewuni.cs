@@ -31,11 +31,8 @@ namespace Organiser.Screens
                 JBT = Backend.findJobType(ID);
                 tbName.Text = JBT.getJobTypeName();
             }
-
             PopulateCombo();
         }
-
-
         public void PopulateCombo()
         {
             foreach (Categories c in Backend.lsCategories)
@@ -43,16 +40,10 @@ namespace Organiser.Screens
                 ComboboxItem item = new ComboboxItem();
                 item.Text = c.getCategoryName();
                 item.Value = c.getCategoryID();
-
-
-
                 cbCate.Items.Add(item);
             }
-            
-
             cbCate.SelectedIndex = 0;
         }
-
         public class ComboboxItem
         {
             public string Text { get; set; }
@@ -63,7 +54,6 @@ namespace Organiser.Screens
                 return Text;
             }
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             int IDpull = Int16.Parse((cbCate.SelectedItem as ComboboxItem).Value.ToString());
@@ -79,12 +69,9 @@ namespace Organiser.Screens
             }
             this.Dispose();
         }
-
         private void cbCate_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-
-
     }
 }

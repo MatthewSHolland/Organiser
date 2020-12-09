@@ -13,15 +13,19 @@ namespace Organiser.Screens
     public partial class monewjob : Form
     {
         String Action;
+        int ID;
         Categories C;
-        public monewjob(String action = null, Categories c = null) 
+        Job jobUpd;
+
+        public monewjob(String action = null, Categories c = null, int id = 0) 
         {
             this.Action = action;
             this.C = c;
+            this.ID = id;
             InitializeComponent();
             StartCate();
+            StartUpdate();
         }
-
         public void StartCate()
         {
             foreach (Categories cate in Backend.lsCategories)
@@ -29,15 +33,11 @@ namespace Organiser.Screens
                 ComboboxItem item = new ComboboxItem();
                 item.Text = cate.getCategoryName();
                 item.Value = cate.getCategoryID();
-
-
-
                 cbCategory.Items.Add(item);
             }
             cbCategory.SelectedIndex = 0;
             StartType();
         }
-
         public void StartType()
         {
             cbJobType.Items.Clear();
@@ -53,13 +53,28 @@ namespace Organiser.Screens
                     item.Value = j.getJobTypeID();
                     cbJobType.Items.Add(item);
                     cbJobType.SelectedIndex = 0;
-
+                }
+            }   
+        }
+        public void StartUpdate()
+        {
+            if (Action == "Update")
+            {
+                jobUpd = Backend.findJob(ID);
+                if (jobUpd != null)
+                {
+                    tbJobID.Text = jobUpd.getJobID().ToString();
+                    tbJobName.Text = jobUpd.getJobName();
+                    rtbDesc.Text = jobUpd.getJobDesc();
+                    tbRaised.Text = jobUpd.getRaisedBy();
+                    tbClientName.Text = jobUpd.getClientName();
+                    tbClientEmail.Text = jobUpd.getClientContact();
+                    tbAttach.Text = jobUpd.getAttachment();
+                    tbJobID.Enabled = false;
+                    tbRaised.Enabled = false;
                 }
             }
-            
         }
-
-
         public class ComboboxItem
         {
             public string Text { get; set; }
@@ -70,10 +85,59 @@ namespace Organiser.Screens
                 return Text;
             }
         }
-
         private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             StartType();
+        }
+        private void tbOkay_Click(object sender, EventArgs e)
+        {
+            int IDpull = Int32.Parse((cbJobType.SelectedItem as ComboboxItem).Value.ToString());
+            if (Validation())
+            {
+                if(Action != "Update")
+                {
+                    Job newJob = new Job(Int32.Parse(tbJobID.Text), tbJobName.Text, rtbDesc.Text, tbRaised.Text,
+                    Backend.findJobType(IDpull), tbClientName.Text, tbClientEmail.Text, tbAttach.Text);
+                    Backend.lsJobs.Add(newJob);
+                }
+                else
+                {
+                    jobUpd.setJobName(tbJobName.Text);
+                    jobUpd.setJobDesc(rtbDesc.Text);
+                    jobUpd.setJobType(Backend.findJobType(IDpull));
+                    jobUpd.setClientName(tbClientName.Text);
+                    jobUpd.setClientContact(tbClientEmail.Text);
+                    jobUpd.setAttachment(tbAttach.Text);     
+                }
+                this.Dispose();
+            }
+        }
+        private Boolean Validation()
+        {
+            if (Backend.findJob(Int32.Parse(tbJobID.Text)) != null && Action != "Update")
+            {
+                createDialog("Job with ID: " + tbJobID.Text + " Already Exists", "Job ID Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (tbJobID.Text == "" || tbJobName.Text == "" || rtbDesc.Text == "" ||  tbRaised.Text == "" ||
+                tbClientName.Text == "" || tbClientEmail.Text == "")
+            {
+                createDialog("All Fields Except Attachments MUST be filled in", "Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false; 
+            }
+
+            return true;
+            
+        }
+        private DialogResult createDialog(String Message, String Type, MessageBoxButtons buts, MessageBoxIcon icon)
+        {
+            DialogResult res = MessageBox.Show(Message, Type, buts, icon);
+            return res;
+        }
+        private void tbCancel_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

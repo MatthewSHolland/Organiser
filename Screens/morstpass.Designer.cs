@@ -118,6 +118,7 @@
             this.Controls.Add(this.tbCurrent);
             this.Controls.Add(this.lblCurrent);
             this.Name = "morstpass";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Reset Password";
             this.ResumeLayout(false);
             this.PerformLayout();

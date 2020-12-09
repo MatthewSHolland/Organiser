@@ -117,6 +117,7 @@
             this.Controls.Add(this.btnNewUnit);
             this.Controls.Add(this.dgvUnitView);
             this.Name = "mobrouni";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "View/Add Units";
             ((System.ComponentModel.ISupportInitialize)(this.dgvUnitView)).EndInit();
             this.ResumeLayout(false);

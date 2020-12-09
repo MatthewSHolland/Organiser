@@ -22,3 +22,6 @@ C:\Users\banes\source\repos\Organiser\Organiser\bin\Debug\Newtonsoft.Json.xml
 C:\Users\banes\source\repos\Organiser\Organiser\obj\Debug\Organiser.csproj.CopyComplete
 C:\Users\banes\source\repos\Organiser\Organiser\obj\Debug\Organiser.Screens.mobropro.resources
 C:\Users\banes\source\repos\Organiser\Organiser\obj\Debug\Organiser.Screens.monewjob.resources
+C:\Users\banes\source\repos\Organiser\Organiser\bin\Debug\LiteDB.dll
+C:\Users\banes\source\repos\Organiser\Organiser\bin\Debug\LiteDB.xml
+C:\Users\banes\source\repos\Organiser\Organiser\obj\Debug\Organiser.csproj.CoreCompileInputs.cache

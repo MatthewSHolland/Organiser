@@ -72,7 +72,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(16, 92);
+            this.btnCancel.Location = new System.Drawing.Point(16, 75);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 4;
@@ -81,7 +81,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(245, 92);
+            this.btnSave.Location = new System.Drawing.Point(245, 75);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 5;
@@ -93,7 +93,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(332, 127);
+            this.ClientSize = new System.Drawing.Size(332, 105);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.cbCate);
@@ -101,6 +101,7 @@
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.lblTypeName);
             this.Name = "monewuni";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New/Update Job Type";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -116,6 +116,7 @@
             this.Controls.Add(this.btnNewUser);
             this.Controls.Add(this.dgvUserView);
             this.Name = "mobrousr";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "User Browser";
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserView)).EndInit();
             this.ResumeLayout(false);

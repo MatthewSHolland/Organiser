@@ -11,13 +11,14 @@ namespace Organiser
         private int JobID;
         private String JobName;
         private String JobDesc;
-        private User JobRaisedBy;
+       //private User JobRaisedByNA;
+        private String JobRaisedBy;
         private JobType JobType;
         private String ClientName;
         private String ClientContact;
         private String Attachment;
 
-        public Job(int jobID, String jobName, String JobDesc, User jobRaisedBy, JobType jobType, String clientName, 
+        public Job(int jobID, String jobName, String JobDesc, String jobRaisedBy, JobType jobType, String clientName, 
                    String clientContact, String attachment = null)
         {
             this.JobID = jobID;
@@ -43,7 +44,11 @@ namespace Organiser
             return JobDesc;
 
         }
-        public User getRaisedBy()
+       // public User getRaisedByNA()
+        //{
+        //    return JobRaisedByNA;
+       // }
+        public String getRaisedBy()
         {
             return JobRaisedBy;
         }

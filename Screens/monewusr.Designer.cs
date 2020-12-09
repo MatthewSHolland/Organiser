@@ -267,6 +267,7 @@
             this.Controls.Add(this.lblSurname);
             this.Controls.Add(this.lblFirstname);
             this.Name = "monewusr";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Create User";
             this.ResumeLayout(false);
             this.PerformLayout();

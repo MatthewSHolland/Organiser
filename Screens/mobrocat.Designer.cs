@@ -118,6 +118,7 @@
             this.Controls.Add(this.btnNewCate);
             this.Controls.Add(this.dgvCateView);
             this.Name = "mobrocat";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "View/Add Categories";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCateView)).EndInit();
             this.ResumeLayout(false);

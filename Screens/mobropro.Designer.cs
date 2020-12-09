@@ -32,6 +32,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnFind = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,6 +80,17 @@
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnFind
+            // 
+            this.btnFind.Location = new System.Drawing.Point(94, 323);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(75, 25);
+            this.btnFind.TabIndex = 4;
+            this.btnFind.Text = "Find";
+            this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // mobropro
             // 
@@ -86,11 +98,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(551, 358);
+            this.Controls.Add(this.btnFind);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.dgvProView);
             this.Name = "mobropro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Open Project";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.mobropro_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProView)).EndInit();
@@ -104,5 +118,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnFind;
     }
 }

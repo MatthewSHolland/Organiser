@@ -57,7 +57,7 @@
             this.cHANGEBOOLToolStripMenuItem});
             this.msStrip.Location = new System.Drawing.Point(0, 0);
             this.msStrip.Name = "msStrip";
-            this.msStrip.Size = new System.Drawing.Size(800, 24);
+            this.msStrip.Size = new System.Drawing.Size(889, 24);
             this.msStrip.TabIndex = 0;
             this.msStrip.Text = "menuStrip1";
             // 
@@ -139,6 +139,7 @@
             this.tsmSec.Name = "tsmSec";
             this.tsmSec.Size = new System.Drawing.Size(61, 20);
             this.tsmSec.Text = "Security";
+            this.tsmSec.Visible = false;
             this.tsmSec.Click += new System.EventHandler(this.sercurityToolStripMenuItem_Click);
             // 
             // usersToolStripMenuItem
@@ -163,6 +164,7 @@
             this.cHANGEBOOLToolStripMenuItem.Name = "cHANGEBOOLToolStripMenuItem";
             this.cHANGEBOOLToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
             this.cHANGEBOOLToolStripMenuItem.Text = "CHANGEBOOL";
+            this.cHANGEBOOLToolStripMenuItem.Visible = false;
             // 
             // tRUEToolStripMenuItem
             // 
@@ -193,11 +195,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 768);
+            this.ClientSize = new System.Drawing.Size(889, 961);
             this.Controls.Add(this.btnAddJob);
             this.Controls.Add(this.msStrip);
             this.MainMenuStrip = this.msStrip;
             this.Name = "momaiscn";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainScreen";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.momaiscn_FormClosing);
             this.msStrip.ResumeLayout(false);

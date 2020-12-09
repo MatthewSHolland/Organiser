@@ -113,6 +113,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblProjectName);
             this.Name = "monewpro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New Project";
             this.ResumeLayout(false);
             this.PerformLayout();

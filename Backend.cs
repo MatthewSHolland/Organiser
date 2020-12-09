@@ -23,6 +23,9 @@ namespace Organiser
         public static String sFileName = "Project";
         public static Boolean bFileLoaded = false;
 
+        private Color BackGround;
+        private Color ForeGround;
+
         public static int ID;
         public static int getCateID()
         {
@@ -30,7 +33,6 @@ namespace Organiser
             {
                 ID = Backend.lsCategories[Backend.lsCategories.Count - 1].getCategoryID() + 1;
             }
-
             return ID;
         }
         public static int getTypeID()
@@ -79,7 +81,6 @@ namespace Organiser
             }
             return null;
         }
-
         public static Project findProject(String Name)
         {
             foreach(Project p in lsPros)
@@ -91,7 +92,6 @@ namespace Organiser
             }
             return null;
         }
-
         public static SecurityLevels findSecLeve(int ID)
         {
           foreach(SecurityLevels s in lsSecLev)
@@ -103,7 +103,6 @@ namespace Organiser
               }
               return null;
         }
-
         public static User findUser(String Username)
         {
             foreach(User u in lsUsers)
@@ -116,7 +115,38 @@ namespace Organiser
 
             return null;
         }
+        public static Job findJob(int ID)
+        {
+            foreach(Job j in lsJobs)
+            {
+                if(j.getJobID() == ID)
+                {
+                    return j;
+                }
+            }
+            return null;
+        }
+        public static Project findPro(String ProName)
+        {
+            foreach(Project p in lsPros)
+            {
+                if(Path.Combine(p.getProDir(), p.getProName()) == ProName)
+                {
+                    return p;
+                }
+            }
+            return null;
+        }
+        public static void Delete(Boolean fromDisk)
+        {
+            String fp = sFilePath + "\\" + sFileName;
+            if(File.Exists(fp + ".xml") && fromDisk)
+            {
+                File.Delete(fp + ".xml");
+            }
 
+            lsPros.Remove(findPro(fp));
+        }
         public static void Save()
         {
             if(sFileName != "" && sFilePath != "")
@@ -184,7 +214,7 @@ namespace Organiser
                     xmlWriter.WriteAttributeString("ID", j.getJobID().ToString());
                     xmlWriter.WriteAttributeString("Name", j.getJobName());
                     xmlWriter.WriteAttributeString("Desc", j.getJobDesc());
-                    xmlWriter.WriteAttributeString("Raised", j.getRaisedBy().getUserName());
+                    xmlWriter.WriteAttributeString("Raised", j.getRaisedBy());
                     xmlWriter.WriteAttributeString("JobType", j.GetJobType().getJobTypeID().ToString());
                     xmlWriter.WriteAttributeString("ClientName", j.getClientName());
                     xmlWriter.WriteAttributeString("ClientCont", j.getClientContact());
@@ -198,7 +228,6 @@ namespace Organiser
             }
             
         }
-
         public static void Load()
         {
             String fp = sFilePath + "\\" + sFileName + ".xml";
@@ -250,12 +279,12 @@ namespace Organiser
                             lsJobTypes.Add(rebjt);
                         }
 
-                        if (ele.Name == "Job")
+                        if (ele.Name == "Jobs")
                         {
-                            Job rebjb = new Job(Int16.Parse(ele.Attributes["ID"].InnerText),
+                            Job rebjb = new Job(Int32.Parse(ele.Attributes["ID"].InnerText),
                                                             ele.Attributes["Name"].InnerText,
                                                             ele.Attributes["Desc"].InnerText,
-                                                            findUser(ele.Attributes["Raised"].InnerText),
+                                                            ele.Attributes["Raised"].InnerText,
                                                             findJobType(Int16.Parse(ele.Attributes["JobType"].InnerText)),
                                                             ele.Attributes["ClientName"].InnerText,
                                                             ele.Attributes["ClientCont"].InnerText,
@@ -268,7 +297,6 @@ namespace Organiser
                 bFileLoaded = true;
             }  
         }
-
         public static void SaveSystemFiles()
         {
             XmlWriter xmlWriter = XmlWriter.Create(Path.GetTempPath() + "\\Organiser.xml");
@@ -284,7 +312,6 @@ namespace Organiser
             xmlWriter.WriteEndDocument();
             xmlWriter.Close();
         }
-
         public static void ReadSystemFiles()
         {
             String fp = Path.GetTempPath() + "\\Organiser.xml";
@@ -298,11 +325,7 @@ namespace Organiser
                     Project p = new Project(node.Attributes["Name"].InnerText, node.Attributes["Dir"].InnerText);
                     lsPros.Add(p);
                 }
-
             }
-
-
-
         }
     }
 }
