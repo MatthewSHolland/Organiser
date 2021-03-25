@@ -19,7 +19,9 @@ namespace Organiser
         public static List<SecurityLevels> lsSecLev = new List<SecurityLevels>();
         public static List<Project> lsPros = new List<Project>();
 
-        public static String sFilePath = "C:\\Users\\banes\\Desktop";
+        public static String sFilePath = "%userprofile%\\Documents";
+        public static String sSystemPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+        public static String sSystemFolder = Path.Combine(sSystemPath, "OrganiserSystem");
         public static String sFileName = "Project";
         public static Boolean bFileLoaded = false;
 
@@ -299,7 +301,11 @@ namespace Organiser
         }
         public static void SaveSystemFiles()
         {
-            XmlWriter xmlWriter = XmlWriter.Create(Path.GetTempPath() + "\\Organiser.xml");
+            Console.WriteLine("Saving System Files....");
+            if(!Directory.Exists(sSystemFolder)) {
+                Directory.CreateDirectory(sSystemFolder);
+            }
+            XmlWriter xmlWriter = XmlWriter.Create(sSystemFolder + "\\Organiser.xml");
             xmlWriter.WriteStartDocument();
             xmlWriter.WriteStartElement("Projects");
             foreach(Project p in lsPros)
@@ -314,7 +320,7 @@ namespace Organiser
         }
         public static void ReadSystemFiles()
         {
-            String fp = Path.GetTempPath() + "\\Organiser.xml";
+            String fp = sSystemFolder + "\\Organiser.xml";
             if (File.Exists(fp))
             {
                 XmlDocument doc = new XmlDocument();
