@@ -90,5 +90,10 @@ namespace Organiser.Screens
         {
 
         }
+
+        private void mobropro_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

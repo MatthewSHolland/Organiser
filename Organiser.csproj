@@ -188,6 +188,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Screens\monewcat.resx">
       <DependentUpon>monewcat.cs</DependentUpon>
@@ -227,6 +228,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="hnet.com-image.ico" />
+    <None Include="Resources\ellipsis.png" />
+    <None Include="Resources\ColourPalette16.png" />
+    <None Include="Resources\ColourPalette.png" />
+    <None Include="Resources\update32.png" />
+    <None Include="Resources\Update.png" />
+    <None Include="Resources\NewJob.png" />
+    <None Include="Resources\DeleteJob.png" />
+    <None Include="Resources\Search.png" />
+    <None Include="Resources\Close.png" />
+    <None Include="Resources\Check.gif" />
+    <None Include="Resources\Check.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

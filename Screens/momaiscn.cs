@@ -13,6 +13,7 @@ namespace Organiser
     public partial class momaiscn : Form
     {
         public List<DataGridView> Grids = new List<DataGridView>();
+        public Font CentryGothic = new Font("Century Gothic", 8.25F);
         public momaiscn()
         {
             InitializeComponent();
@@ -22,14 +23,13 @@ namespace Organiser
         public void startComponents()
         {
             int XLoc = 20;
-            int YLoc = btnAddJob.Location.Y + 50;
+            int YLoc = btnAddJob.Location.Y + 60;
             int Width = this.Size.Width - 60;
             int Height = 200;
 
             tsmEdit.Enabled = Backend.bFileLoaded;
             tsmSec.Enabled = Backend.bFileLoaded;
             btnAddJob.Visible = Backend.bFileLoaded;
-
 
             if (Backend.bFileLoaded)
             {
