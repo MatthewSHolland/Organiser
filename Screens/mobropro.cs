@@ -15,23 +15,21 @@ namespace Organiser.Screens
         public mobropro()
         {
             InitializeComponent();
+            Backend.ReadSystemFiles();
             PopulateDgv();
-
-
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
+            Backend.ClearLists();
             Backend.sFileName = Backend.findProject(getRowID()).getProName();
             Backend.sFilePath = Backend.findProject(getRowID()).getProDir();
             Backend.Load();
             this.Dispose();
-
         }
 
         private void PopulateDgv()
         {
-
             DataTable tb = new DataTable("Projects");
             tb.Columns.Add("Project Name");
             tb.Columns.Add("Project Directory");
@@ -45,7 +43,6 @@ namespace Organiser.Screens
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Backend.bFileLoaded = false;
             this.Dispose();
         }
 

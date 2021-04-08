@@ -13,7 +13,6 @@ namespace Organiser
     public partial class momaiscn : Form
     {
         public List<DataGridView> Grids = new List<DataGridView>();
-        public Font CentryGothic = new Font("Century Gothic", 8.25F);
         public momaiscn()
         {
             InitializeComponent();
@@ -26,13 +25,26 @@ namespace Organiser
             int YLoc = btnAddJob.Location.Y + 60;
             int Width = this.Size.Width - 60;
             int Height = 200;
-
+            clearDataGridControls();
             tsmEdit.Enabled = Backend.bFileLoaded;
             tsmSec.Enabled = Backend.bFileLoaded;
             btnAddJob.Visible = Backend.bFileLoaded;
 
             if (Backend.bFileLoaded)
             {
+                FlowLayoutPanel DGVContain = new FlowLayoutPanel();
+                DGVContain.Size = new Size(Width,this.Size.Height);
+                DGVContain.Location = new Point(XLoc, YLoc);
+                DGVContain.MaximumSize = DGVContain.Size;
+                DGVContain.AutoScroll = true;
+                DGVContain.AutoSize = true;
+                DGVContain.VerticalScroll.Visible = true;
+                DGVContain.Anchor = (AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom);
+
+                DGVContain.Name = "ContainerforDGV";
+
+                
+                
                 foreach (Categories c in Backend.lsCategories)
                 {
                     DataTable table = new DataTable("Jobs");
@@ -47,7 +59,7 @@ namespace Organiser
 
                     DataGridView Cate = new DataGridView();
                     Cate.Location = new Point(XLoc, YLoc);
-                    Cate.Size = new Size(Width, Height);
+                    Cate.Size = new Size(DGVContain.Size.Width - 20, Height);
                     Cate.BackgroundColor = c.getColor();
                     Cate.Name = c.getCategoryName() + c.getCategoryID().ToString();
                     Cate.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -72,23 +84,11 @@ namespace Organiser
 
                     Cate.DataSource = table;
                     
-                    this.Controls.Add(Cate);
+                    DGVContain.Controls.Add(Cate);
                     YLoc = YLoc + Height + 20;
                 }
-
+                this.Controls.Add(DGVContain);
             }
-        }
-        public void Refreshdgv()
-        {
-            foreach (Categories c in Backend.lsCategories)
-            {
-                DataGridView d = this.Controls.Find(c.getCategoryName() + c.getCategoryID().ToString(), true).FirstOrDefault() as DataGridView;
-                if(d != null)
-                {
-                    d.Dispose();
-                }
-            }
-            startComponents();
         }
         private void sercurityToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -99,14 +99,13 @@ namespace Organiser
             Backend.ReadSystemFiles();
             Screens.monewpro open = new Screens.monewpro();
             open.ShowDialog();
-
             startComponents();
         }
         private void catagoriesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Screens.mobrocat open = new Screens.mobrocat();
             open.ShowDialog();
-            Refreshdgv();
+            startComponents();
         }
         private void tRUEToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -128,8 +127,6 @@ namespace Organiser
         }
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Backend.ClearLists();
-            Backend.ReadSystemFiles();
             Screens.mobropro open = new Screens.mobropro();
             open.ShowDialog();
             startComponents();
@@ -199,19 +196,31 @@ namespace Organiser
             Screens.monewjob open = new Screens.monewjob("new");
             open.ShowDialog();
             Backend.Save();
-            Refreshdgv();
+            startComponents();
         }
         protected void Grid_MouseDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             String ID = (sender as DataGridView).Rows[e.RowIndex].Cells[0].Value.ToString();
             Screens.monewjob open = new Screens.monewjob("Update",null,Int32.Parse(ID));
             open.ShowDialog();
-            Refreshdgv();
+            startComponents();
         }
         private DialogResult createDialog(String Message, String Type, MessageBoxButtons buts, MessageBoxIcon icon)
         {
             DialogResult res = MessageBox.Show(Message, Type, buts, icon);
             return res;
+        }
+
+        public void clearDataGridControls()
+        {
+            foreach (var cntrl in Controls)
+            {
+                if (cntrl is Panel)
+                {
+                    Panel d = cntrl as Panel;
+                    d.Dispose();
+                }
+            }
         }
     }
 }

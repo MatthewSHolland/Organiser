@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace Organiser
 {
@@ -25,9 +26,6 @@ namespace Organiser
         public static String sFileName = "Project";
         public static Boolean bFileLoaded = false;
 
-        private Color BackGround;
-        private Color ForeGround;
-
         public static int ID;
         public static int getCateID()
         {
@@ -37,6 +35,7 @@ namespace Organiser
             }
             return ID;
         }
+
         public static int getTypeID()
         {
             if (lsJobTypes.Count > 0)

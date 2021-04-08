@@ -67,6 +67,7 @@ namespace Organiser.Screens
                     tbJobName.Text = jobUpd.getJobName();
                     rtbDesc.Text = jobUpd.getJobDesc();
                     tbRaised.Text = jobUpd.getRaisedBy();
+                    cbJobType.SelectedIndex = cbJobType.FindString(jobUpd.GetJobType().getJobTypeName());
                     tbClientName.Text = jobUpd.getClientName();
                     tbClientEmail.Text = jobUpd.getClientContact();
                     tbAttach.Text = jobUpd.getAttachment();
@@ -114,18 +115,19 @@ namespace Organiser.Screens
         }
         private Boolean Validation()
         {
+            if (tbJobID.Text == "" || tbJobName.Text == "" || rtbDesc.Text == "" || tbRaised.Text == "" ||
+                tbClientName.Text == "" || tbClientEmail.Text == "")
+            {
+                createDialog("All Fields Except Attachments MUST be filled in", "Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
             if (Backend.findJob(Int32.Parse(tbJobID.Text)) != null && Action != "Update")
             {
                 createDialog("Job with ID: " + tbJobID.Text + " Already Exists", "Job ID Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            if (tbJobID.Text == "" || tbJobName.Text == "" || rtbDesc.Text == "" ||  tbRaised.Text == "" ||
-                tbClientName.Text == "" || tbClientEmail.Text == "")
-            {
-                createDialog("All Fields Except Attachments MUST be filled in", "Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false; 
-            }
+
 
             return true;
             
