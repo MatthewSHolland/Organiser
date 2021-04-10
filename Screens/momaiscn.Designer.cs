@@ -39,14 +39,10 @@
             this.tsmEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.catagoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jobTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmSec = new System.Windows.Forms.ToolStripMenuItem();
-            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.securityLevelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cHANGEBOOLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tRUEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fALSEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.restoreFromBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAddJob = new System.Windows.Forms.Button();
             this.msStrip.SuspendLayout();
             this.SuspendLayout();
@@ -56,13 +52,11 @@
             this.msStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmFile,
             this.tsmEdit,
-            this.tsmSec,
-            this.cHANGEBOOLToolStripMenuItem,
             this.optionsToolStripMenuItem});
             this.msStrip.Location = new System.Drawing.Point(0, 0);
             this.msStrip.Name = "msStrip";
             this.msStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.msStrip.Size = new System.Drawing.Size(842, 25);
+            this.msStrip.Size = new System.Drawing.Size(523, 25);
             this.msStrip.TabIndex = 0;
             this.msStrip.Text = "menuStrip1";
             // 
@@ -82,35 +76,35 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // closeProjectToolStripMenuItem
             // 
             this.closeProjectToolStripMenuItem.Name = "closeProjectToolStripMenuItem";
-            this.closeProjectToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.closeProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.closeProjectToolStripMenuItem.Text = "Close Project";
             this.closeProjectToolStripMenuItem.Click += new System.EventHandler(this.closeProjectToolStripMenuItem_Click);
             // 
             // exitProgramToolStripMenuItem
             // 
             this.exitProgramToolStripMenuItem.Name = "exitProgramToolStripMenuItem";
-            this.exitProgramToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.exitProgramToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitProgramToolStripMenuItem.Text = "Exit Program";
             this.exitProgramToolStripMenuItem.Click += new System.EventHandler(this.exitProgramToolStripMenuItem_Click);
             // 
@@ -127,84 +121,47 @@
             // catagoriesToolStripMenuItem
             // 
             this.catagoriesToolStripMenuItem.Name = "catagoriesToolStripMenuItem";
-            this.catagoriesToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.catagoriesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.catagoriesToolStripMenuItem.Text = "Catagories";
             this.catagoriesToolStripMenuItem.Click += new System.EventHandler(this.catagoriesToolStripMenuItem_Click);
             // 
             // jobTypesToolStripMenuItem
             // 
             this.jobTypesToolStripMenuItem.Name = "jobTypesToolStripMenuItem";
-            this.jobTypesToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.jobTypesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.jobTypesToolStripMenuItem.Text = "Job Types";
             this.jobTypesToolStripMenuItem.Click += new System.EventHandler(this.jobTypesToolStripMenuItem_Click);
-            // 
-            // tsmSec
-            // 
-            this.tsmSec.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.usersToolStripMenuItem,
-            this.securityLevelsToolStripMenuItem});
-            this.tsmSec.Enabled = false;
-            this.tsmSec.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsmSec.Name = "tsmSec";
-            this.tsmSec.Size = new System.Drawing.Size(68, 21);
-            this.tsmSec.Text = "Security";
-            this.tsmSec.Visible = false;
-            this.tsmSec.Click += new System.EventHandler(this.sercurityToolStripMenuItem_Click);
-            // 
-            // usersToolStripMenuItem
-            // 
-            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.usersToolStripMenuItem.Text = "Users";
-            this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
-            // 
-            // securityLevelsToolStripMenuItem
-            // 
-            this.securityLevelsToolStripMenuItem.Name = "securityLevelsToolStripMenuItem";
-            this.securityLevelsToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.securityLevelsToolStripMenuItem.Text = "Security Levels";
-            this.securityLevelsToolStripMenuItem.Click += new System.EventHandler(this.securityLevelsToolStripMenuItem_Click);
-            // 
-            // cHANGEBOOLToolStripMenuItem
-            // 
-            this.cHANGEBOOLToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tRUEToolStripMenuItem,
-            this.fALSEToolStripMenuItem});
-            this.cHANGEBOOLToolStripMenuItem.Enabled = false;
-            this.cHANGEBOOLToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cHANGEBOOLToolStripMenuItem.Name = "cHANGEBOOLToolStripMenuItem";
-            this.cHANGEBOOLToolStripMenuItem.Size = new System.Drawing.Size(104, 21);
-            this.cHANGEBOOLToolStripMenuItem.Text = "CHANGEBOOL";
-            this.cHANGEBOOLToolStripMenuItem.Visible = false;
-            // 
-            // tRUEToolStripMenuItem
-            // 
-            this.tRUEToolStripMenuItem.Name = "tRUEToolStripMenuItem";
-            this.tRUEToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
-            this.tRUEToolStripMenuItem.Text = "TRUE";
-            this.tRUEToolStripMenuItem.Click += new System.EventHandler(this.tRUEToolStripMenuItem_Click);
-            // 
-            // fALSEToolStripMenuItem
-            // 
-            this.fALSEToolStripMenuItem.Name = "fALSEToolStripMenuItem";
-            this.fALSEToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
-            this.fALSEToolStripMenuItem.Text = "FALSE";
-            this.fALSEToolStripMenuItem.Click += new System.EventHandler(this.fALSEToolStripMenuItem_Click);
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.preferencesToolStripMenuItem});
+            this.backupToolStripMenuItem});
             this.optionsToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(66, 21);
             this.optionsToolStripMenuItem.Text = "Options";
             // 
-            // preferencesToolStripMenuItem
+            // backupToolStripMenuItem
             // 
-            this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
-            this.preferencesToolStripMenuItem.Text = "Preferences";
+            this.backupToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createBackupToolStripMenuItem,
+            this.restoreFromBackupToolStripMenuItem});
+            this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
+            this.backupToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.backupToolStripMenuItem.Text = "Backup";
+            // 
+            // createBackupToolStripMenuItem
+            // 
+            this.createBackupToolStripMenuItem.Name = "createBackupToolStripMenuItem";
+            this.createBackupToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.createBackupToolStripMenuItem.Text = "Create Backup";
+            this.createBackupToolStripMenuItem.Click += new System.EventHandler(this.createBackupToolStripMenuItem_Click);
+            // 
+            // restoreFromBackupToolStripMenuItem
+            // 
+            this.restoreFromBackupToolStripMenuItem.Name = "restoreFromBackupToolStripMenuItem";
+            this.restoreFromBackupToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.restoreFromBackupToolStripMenuItem.Text = "Restore from Backup";
             // 
             // btnAddJob
             // 
@@ -225,10 +182,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 783);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(523, 783);
             this.Controls.Add(this.btnAddJob);
             this.Controls.Add(this.msStrip);
             this.Font = new System.Drawing.Font("Century Gothic", 8F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.msStrip;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -255,15 +214,11 @@
         private System.Windows.Forms.ToolStripMenuItem tsmEdit;
         private System.Windows.Forms.ToolStripMenuItem catagoriesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jobTypesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tsmSec;
-        private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem securityLevelsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cHANGEBOOLToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tRUEToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fALSEToolStripMenuItem;
         private System.Windows.Forms.Button btnAddJob;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem backupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createBackupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem restoreFromBackupToolStripMenuItem;
     }
 }
 

@@ -11,23 +11,16 @@ namespace Organiser
         private int JobID;
         private String JobName;
         private String JobDesc;
-       //private User JobRaisedByNA;
-        private String JobRaisedBy;
         private JobType JobType;
-        private String ClientName;
-        private String ClientContact;
         private String Attachment;
 
-        public Job(int jobID, String jobName, String JobDesc, String jobRaisedBy, JobType jobType, String clientName, 
-                   String clientContact, String attachment = null)
+        public Job(int jobID, String jobName, String JobDesc, JobType jobType, 
+                   String attachment = null)
         {
             this.JobID = jobID;
             this.JobName = jobName;
             this.JobDesc = JobDesc;
-            this.JobRaisedBy = jobRaisedBy;
             this.JobType = jobType;
-            this.ClientName = clientName;
-            this.ClientContact = clientContact;
             this.Attachment = attachment;
         }
 
@@ -44,25 +37,9 @@ namespace Organiser
             return JobDesc;
 
         }
-       // public User getRaisedByNA()
-        //{
-        //    return JobRaisedByNA;
-       // }
-        public String getRaisedBy()
-        {
-            return JobRaisedBy;
-        }
         public JobType GetJobType()
         {
             return JobType;
-        }
-        public String getClientName()
-        {
-            return ClientName;
-        }
-        public String getClientContact()
-        {
-            return ClientContact;
         }
         public String getAttachment()
         {
@@ -80,14 +57,7 @@ namespace Organiser
         {
             this.JobType = jobType;
         }
-        public void setClientName(String clientname)
-        {
-            this.ClientName = clientname;
-        }
-        public void setClientContact(String clientContact)
-        {
-            this.ClientContact = clientContact;
-        }
+
         public void setAttachment(String attachment)
         {
             this.Attachment = attachment;

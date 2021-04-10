@@ -39,12 +39,6 @@
             this.cbCategory = new System.Windows.Forms.ComboBox();
             this.lblJobType = new System.Windows.Forms.Label();
             this.cbJobType = new System.Windows.Forms.ComboBox();
-            this.lblRaisedBy = new System.Windows.Forms.Label();
-            this.tbRaised = new System.Windows.Forms.TextBox();
-            this.lblClientName = new System.Windows.Forms.Label();
-            this.tbClientName = new System.Windows.Forms.TextBox();
-            this.lblClientEmail = new System.Windows.Forms.Label();
-            this.tbClientEmail = new System.Windows.Forms.TextBox();
             this.lblAttach = new System.Windows.Forms.Label();
             this.tbAttach = new System.Windows.Forms.TextBox();
             this.tbOkay = new System.Windows.Forms.Button();
@@ -141,57 +135,6 @@
             this.cbJobType.Size = new System.Drawing.Size(142, 24);
             this.cbJobType.TabIndex = 9;
             // 
-            // lblRaisedBy
-            // 
-            this.lblRaisedBy.AutoSize = true;
-            this.lblRaisedBy.Location = new System.Drawing.Point(313, 91);
-            this.lblRaisedBy.Name = "lblRaisedBy";
-            this.lblRaisedBy.Size = new System.Drawing.Size(59, 16);
-            this.lblRaisedBy.TabIndex = 10;
-            this.lblRaisedBy.Text = "Raised By";
-            // 
-            // tbRaised
-            // 
-            this.tbRaised.Location = new System.Drawing.Point(386, 87);
-            this.tbRaised.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbRaised.Name = "tbRaised";
-            this.tbRaised.Size = new System.Drawing.Size(142, 21);
-            this.tbRaised.TabIndex = 11;
-            // 
-            // lblClientName
-            // 
-            this.lblClientName.AutoSize = true;
-            this.lblClientName.Location = new System.Drawing.Point(302, 128);
-            this.lblClientName.Name = "lblClientName";
-            this.lblClientName.Size = new System.Drawing.Size(75, 16);
-            this.lblClientName.TabIndex = 12;
-            this.lblClientName.Text = "Client Name";
-            // 
-            // tbClientName
-            // 
-            this.tbClientName.Location = new System.Drawing.Point(386, 124);
-            this.tbClientName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbClientName.Name = "tbClientName";
-            this.tbClientName.Size = new System.Drawing.Size(142, 21);
-            this.tbClientName.TabIndex = 13;
-            // 
-            // lblClientEmail
-            // 
-            this.lblClientEmail.AutoSize = true;
-            this.lblClientEmail.Location = new System.Drawing.Point(306, 166);
-            this.lblClientEmail.Name = "lblClientEmail";
-            this.lblClientEmail.Size = new System.Drawing.Size(70, 16);
-            this.lblClientEmail.TabIndex = 14;
-            this.lblClientEmail.Text = "Client Email";
-            // 
-            // tbClientEmail
-            // 
-            this.tbClientEmail.Location = new System.Drawing.Point(386, 161);
-            this.tbClientEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbClientEmail.Name = "tbClientEmail";
-            this.tbClientEmail.Size = new System.Drawing.Size(142, 21);
-            this.tbClientEmail.TabIndex = 15;
-            // 
             // lblAttach
             // 
             this.lblAttach.AutoSize = true;
@@ -255,12 +198,6 @@
             this.Controls.Add(this.tbBrowse);
             this.Controls.Add(this.tbAttach);
             this.Controls.Add(this.lblAttach);
-            this.Controls.Add(this.tbClientEmail);
-            this.Controls.Add(this.lblClientEmail);
-            this.Controls.Add(this.tbClientName);
-            this.Controls.Add(this.lblClientName);
-            this.Controls.Add(this.tbRaised);
-            this.Controls.Add(this.lblRaisedBy);
             this.Controls.Add(this.cbJobType);
             this.Controls.Add(this.lblJobType);
             this.Controls.Add(this.cbCategory);
@@ -294,12 +231,6 @@
         private System.Windows.Forms.ComboBox cbCategory;
         private System.Windows.Forms.Label lblJobType;
         private System.Windows.Forms.ComboBox cbJobType;
-        private System.Windows.Forms.Label lblRaisedBy;
-        private System.Windows.Forms.TextBox tbRaised;
-        private System.Windows.Forms.Label lblClientName;
-        private System.Windows.Forms.TextBox tbClientName;
-        private System.Windows.Forms.Label lblClientEmail;
-        private System.Windows.Forms.TextBox tbClientEmail;
         private System.Windows.Forms.Label lblAttach;
         private System.Windows.Forms.TextBox tbAttach;
         private System.Windows.Forms.Button tbBrowse;

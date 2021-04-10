@@ -87,6 +87,12 @@
     <Compile Include="Screens\mobrocat.Designer.cs">
       <DependentUpon>mobrocat.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\mobropre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\mobropre.Designer.cs">
+      <DependentUpon>mobropre.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\mobropro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     <Compile Include="User.cs" />
     <EmbeddedResource Include="Screens\mobrocat.resx">
       <DependentUpon>mobrocat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\mobropre.resx">
+      <DependentUpon>mobropre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\mobropro.resx">
       <DependentUpon>mobropro.cs</DependentUpon>

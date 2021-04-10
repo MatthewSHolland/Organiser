@@ -66,13 +66,9 @@ namespace Organiser.Screens
                     tbJobID.Text = jobUpd.getJobID().ToString();
                     tbJobName.Text = jobUpd.getJobName();
                     rtbDesc.Text = jobUpd.getJobDesc();
-                    tbRaised.Text = jobUpd.getRaisedBy();
                     cbJobType.SelectedIndex = cbJobType.FindString(jobUpd.GetJobType().getJobTypeName());
-                    tbClientName.Text = jobUpd.getClientName();
-                    tbClientEmail.Text = jobUpd.getClientContact();
                     tbAttach.Text = jobUpd.getAttachment();
                     tbJobID.Enabled = false;
-                    tbRaised.Enabled = false;
                 }
             }
         }
@@ -97,8 +93,8 @@ namespace Organiser.Screens
             {
                 if(Action != "Update")
                 {
-                    Job newJob = new Job(Int32.Parse(tbJobID.Text), tbJobName.Text, rtbDesc.Text, tbRaised.Text,
-                    Backend.findJobType(IDpull), tbClientName.Text, tbClientEmail.Text, tbAttach.Text);
+                    Job newJob = new Job(Int32.Parse(tbJobID.Text), tbJobName.Text, rtbDesc.Text,
+                    Backend.findJobType(IDpull), tbAttach.Text);
                     Backend.lsJobs.Add(newJob);
                 }
                 else
@@ -106,8 +102,6 @@ namespace Organiser.Screens
                     jobUpd.setJobName(tbJobName.Text);
                     jobUpd.setJobDesc(rtbDesc.Text);
                     jobUpd.setJobType(Backend.findJobType(IDpull));
-                    jobUpd.setClientName(tbClientName.Text);
-                    jobUpd.setClientContact(tbClientEmail.Text);
                     jobUpd.setAttachment(tbAttach.Text);     
                 }
                 this.Dispose();
@@ -115,8 +109,7 @@ namespace Organiser.Screens
         }
         private Boolean Validation()
         {
-            if (tbJobID.Text == "" || tbJobName.Text == "" || rtbDesc.Text == "" || tbRaised.Text == "" ||
-                tbClientName.Text == "" || tbClientEmail.Text == "")
+            if (tbJobID.Text == "" || tbJobName.Text == "" || rtbDesc.Text == "")
             {
                 createDialog("All Fields Except Attachments MUST be filled in", "Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;

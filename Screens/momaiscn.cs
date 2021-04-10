@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Organiser
 {
@@ -26,8 +27,6 @@ namespace Organiser
             int Width = this.Size.Width - 60;
             int Height = 200;
             clearDataGridControls();
-            tsmEdit.Enabled = Backend.bFileLoaded;
-            tsmSec.Enabled = Backend.bFileLoaded;
             btnAddJob.Visible = Backend.bFileLoaded;
 
             if (Backend.bFileLoaded)
@@ -51,21 +50,12 @@ namespace Organiser
                     table.Columns.Add("Job ID");
                     table.Columns.Add("Job Name");
                     table.Columns.Add("Job Desc");
-                    table.Columns.Add("Raised By");
                     table.Columns.Add("Job Type");
-                    table.Columns.Add("Client Name");
-                    table.Columns.Add("Client Contact");
                     table.Columns.Add("Attachment");
 
                     DataGridView Cate = new DataGridView();
-                    Cate.Location = new Point(XLoc, YLoc);
-                    Cate.Size = new Size(DGVContain.Size.Width - 20, Height);
-                    Cate.BackgroundColor = c.getColor();
-                    Cate.Name = c.getCategoryName() + c.getCategoryID().ToString();
-                    Cate.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    Backend.SetDGV(Cate, c.getCategoryName() + c.getCategoryID().ToString(), c.getColor(), new Point(XLoc, YLoc), new Size(DGVContain.Size.Width - 20, Height));
                     Cate.CellDoubleClick += new DataGridViewCellEventHandler(this.Grid_MouseDoubleClick);
-                    Cate.ReadOnly = true;
-                    Cate.Anchor = (AnchorStyles.Left | AnchorStyles.Right);
 
                     foreach (JobType JT in Backend.lsJobTypes)
                     {
@@ -75,16 +65,16 @@ namespace Organiser
                             {
                                 if (J.GetJobType() == JT)
                                 {
-                                    table.Rows.Add(J.getJobID(), J.getJobName(), J.getJobDesc(), J.getRaisedBy(),
-                                                   J.GetJobType().getJobTypeName(), J.getClientName(), J.getClientContact(), J.getAttachment());
+                                    table.Rows.Add(J.getJobID(), J.getJobName(), J.getJobDesc(),
+                                                   J.GetJobType().getJobTypeName(), J.getAttachment());
                                 }
                             }
                         }
                     }
 
                     Cate.DataSource = table;
-                    
                     DGVContain.Controls.Add(Cate);
+
                     YLoc = YLoc + Height + 20;
                 }
                 this.Controls.Add(DGVContain);
@@ -221,6 +211,19 @@ namespace Organiser
                     d.Dispose();
                 }
             }
+        }
+
+        private void createBackupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(Backend.bFileLoaded)
+            {
+
+            }
+            else
+            {
+                createDialog("No Project Loaded", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

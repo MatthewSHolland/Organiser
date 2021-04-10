@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Data;
 
 namespace Organiser
 {
@@ -215,10 +216,7 @@ namespace Organiser
                     xmlWriter.WriteAttributeString("ID", j.getJobID().ToString());
                     xmlWriter.WriteAttributeString("Name", j.getJobName());
                     xmlWriter.WriteAttributeString("Desc", j.getJobDesc());
-                    xmlWriter.WriteAttributeString("Raised", j.getRaisedBy());
                     xmlWriter.WriteAttributeString("JobType", j.GetJobType().getJobTypeID().ToString());
-                    xmlWriter.WriteAttributeString("ClientName", j.getClientName());
-                    xmlWriter.WriteAttributeString("ClientCont", j.getClientContact());
                     xmlWriter.WriteAttributeString("Attachment", j.getAttachment());
                     xmlWriter.WriteEndElement();
                 }
@@ -285,10 +283,7 @@ namespace Organiser
                             Job rebjb = new Job(Int32.Parse(ele.Attributes["ID"].InnerText),
                                                             ele.Attributes["Name"].InnerText,
                                                             ele.Attributes["Desc"].InnerText,
-                                                            ele.Attributes["Raised"].InnerText,
                                                             findJobType(Int16.Parse(ele.Attributes["JobType"].InnerText)),
-                                                            ele.Attributes["ClientName"].InnerText,
-                                                            ele.Attributes["ClientCont"].InnerText,
                                                             ele.Attributes["Attachment"].InnerText);
                             lsJobs.Add(rebjb);
                         }
@@ -300,7 +295,6 @@ namespace Organiser
         }
         public static void SaveSystemFiles()
         {
-            Console.WriteLine("Saving System Files....");
             if(!Directory.Exists(sSystemFolder)) {
                 Directory.CreateDirectory(sSystemFolder);
             }
@@ -332,5 +326,24 @@ namespace Organiser
                 }
             }
         }
+
+        public static void CreateBackup()
+        {
+
+        }
+
+        public static DataGridView SetDGV(DataGridView Cate, String Name, Color Background, Point loc, Size size)
+        {
+            Cate.Location = loc;
+            Cate.Size = size;
+            Cate.BackgroundColor = Background;
+            Cate.Name = Name;
+            Cate.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Cate.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            Cate.ReadOnly = true;
+            Cate.Anchor = (AnchorStyles.Left | AnchorStyles.Right);
+            return Cate;
+        }
+
     }
 }
