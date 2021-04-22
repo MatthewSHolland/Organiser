@@ -64,8 +64,8 @@
             // 
             this.tsmFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
-            this.saveToolStripMenuItem,
             this.newToolStripMenuItem,
+            this.saveToolStripMenuItem,
             this.closeProjectToolStripMenuItem,
             this.exitProgramToolStripMenuItem});
             this.tsmFile.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -121,14 +121,14 @@
             // catagoriesToolStripMenuItem
             // 
             this.catagoriesToolStripMenuItem.Name = "catagoriesToolStripMenuItem";
-            this.catagoriesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.catagoriesToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.catagoriesToolStripMenuItem.Text = "Catagories";
             this.catagoriesToolStripMenuItem.Click += new System.EventHandler(this.catagoriesToolStripMenuItem_Click);
             // 
             // jobTypesToolStripMenuItem
             // 
             this.jobTypesToolStripMenuItem.Name = "jobTypesToolStripMenuItem";
-            this.jobTypesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.jobTypesToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.jobTypesToolStripMenuItem.Text = "Job Types";
             this.jobTypesToolStripMenuItem.Click += new System.EventHandler(this.jobTypesToolStripMenuItem_Click);
             // 

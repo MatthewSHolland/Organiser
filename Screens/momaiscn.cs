@@ -27,7 +27,7 @@ namespace Organiser
             int Width = this.Size.Width - 60;
             int Height = 200;
             clearDataGridControls();
-            btnAddJob.Visible = Backend.bFileLoaded;
+            setControlState();
 
             if (Backend.bFileLoaded)
             {
@@ -41,9 +41,6 @@ namespace Organiser
                 DGVContain.Anchor = (AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom);
 
                 DGVContain.Name = "ContainerforDGV";
-
-                
-                
                 foreach (Categories c in Backend.lsCategories)
                 {
                     DataTable table = new DataTable("Jobs");
@@ -52,7 +49,12 @@ namespace Organiser
                     table.Columns.Add("Job Desc");
                     table.Columns.Add("Job Type");
                     table.Columns.Add("Attachment");
-
+                    Label tableHead = new Label();
+                    tableHead.Text = c.getCategoryName();
+                    tableHead.Location = new Point(XLoc, YLoc);
+                    tableHead.Size = new Size(DGVContain.Size.Width - 20, 20);
+                    tableHead.TextAlign = ContentAlignment.MiddleCenter;
+                    YLoc = YLoc + 30;
                     DataGridView Cate = new DataGridView();
                     Backend.SetDGV(Cate, c.getCategoryName() + c.getCategoryID().ToString(), c.getColor(), new Point(XLoc, YLoc), new Size(DGVContain.Size.Width - 20, Height));
                     Cate.CellDoubleClick += new DataGridViewCellEventHandler(this.Grid_MouseDoubleClick);
@@ -73,16 +75,13 @@ namespace Organiser
                     }
 
                     Cate.DataSource = table;
+                    DGVContain.Controls.Add(tableHead);
                     DGVContain.Controls.Add(Cate);
 
                     YLoc = YLoc + Height + 20;
                 }
                 this.Controls.Add(DGVContain);
             }
-        }
-        private void sercurityToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
         }
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -95,15 +94,6 @@ namespace Organiser
         {
             Screens.mobrocat open = new Screens.mobrocat();
             open.ShowDialog();
-            startComponents();
-        }
-        private void tRUEToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void fALSEToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Backend.bFileLoaded = false;
             startComponents();
         }
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -154,16 +144,6 @@ namespace Organiser
         {
             this.Dispose();
         }
-        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Screens.mobrousr open = new Screens.mobrousr();
-            open.ShowDialog();
-        }
-        private void securityLevelsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Screens.mobrosec open = new Screens.mobrosec();
-            open.ShowDialog();
-        }
         private void momaiscn_FormClosing(object sender, FormClosingEventArgs e)
         {
 
@@ -212,7 +192,12 @@ namespace Organiser
                 }
             }
         }
-
+        public void setControlState()
+        {
+            btnAddJob.Visible = Backend.bFileLoaded;
+            saveToolStripMenuItem.Enabled = Backend.bFileLoaded;
+            closeProjectToolStripMenuItem.Enabled = Backend.bFileLoaded;
+        }
         private void createBackupToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if(Backend.bFileLoaded)
