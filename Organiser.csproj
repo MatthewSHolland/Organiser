@@ -99,23 +99,11 @@
     <Compile Include="Screens\mobropro.Designer.cs">
       <DependentUpon>mobropro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screens\mobrosec.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screens\mobrosec.Designer.cs">
-      <DependentUpon>mobrosec.cs</DependentUpon>
-    </Compile>
     <Compile Include="Screens\mobrouni.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Screens\mobrouni.Designer.cs">
       <DependentUpon>mobrouni.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Screens\molgnscn.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screens\molgnscn.Designer.cs">
-      <DependentUpon>molgnscn.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\momaiscn.cs">
       <SubType>Form</SubType>
@@ -143,32 +131,12 @@
     <Compile Include="Screens\monewpro.Designer.cs">
       <DependentUpon>monewpro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screens\mobrousr.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screens\mobrousr.Designer.cs">
-      <DependentUpon>mobrousr.cs</DependentUpon>
-    </Compile>
     <Compile Include="Screens\monewuni.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Screens\monewuni.Designer.cs">
       <DependentUpon>monewuni.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screens\monewusr.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screens\monewusr.Designer.cs">
-      <DependentUpon>monewusr.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Screens\morstpass.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screens\morstpass.Designer.cs">
-      <DependentUpon>morstpass.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SecurityLevels.cs" />
-    <Compile Include="User.cs" />
     <EmbeddedResource Include="Screens\mobrocat.resx">
       <DependentUpon>mobrocat.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,14 +146,8 @@
     <EmbeddedResource Include="Screens\mobropro.resx">
       <DependentUpon>mobropro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screens\mobrosec.resx">
-      <DependentUpon>mobrosec.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Screens\mobrouni.resx">
       <DependentUpon>mobrouni.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Screens\molgnscn.resx">
-      <DependentUpon>molgnscn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\momaiscn.resx">
       <DependentUpon>momaiscn.cs</DependentUpon>
@@ -209,17 +171,8 @@
     <EmbeddedResource Include="Screens\monewpro.resx">
       <DependentUpon>monewpro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screens\mobrousr.resx">
-      <DependentUpon>mobrousr.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Screens\monewuni.resx">
       <DependentUpon>monewuni.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Screens\monewusr.resx">
-      <DependentUpon>monewusr.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Screens\morstpass.resx">
-      <DependentUpon>morstpass.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Backend.datasource" />

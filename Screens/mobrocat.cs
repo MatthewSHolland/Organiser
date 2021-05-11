@@ -29,20 +29,7 @@ namespace Organiser.Screens
                 Backend.lsCategories.Add(Complete);
                 Backend.lsCategories.Add(New);
             }
-            Populatedgv();
-            LoadColours();
-
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-        private void LoadColours()
-        {
-
-        }
-
         private void Populatedgv()
         {
             DataTable table = new DataTable("Categories");

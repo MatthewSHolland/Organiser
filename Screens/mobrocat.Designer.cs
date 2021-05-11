@@ -56,7 +56,6 @@
             this.dgvCateView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCateView.Size = new System.Drawing.Size(386, 540);
             this.dgvCateView.TabIndex = 0;
-            this.dgvCateView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // button1
             // 

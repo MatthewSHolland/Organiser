@@ -17,8 +17,6 @@ namespace Organiser
         public static List<Categories> lsCategories = new List<Categories>();
         public static List<JobType> lsJobTypes = new List<JobType>();
         public static List<Job> lsJobs = new List<Job>();
-        public static List<User> lsUsers = new List<User>();
-        public static List<SecurityLevels> lsSecLev = new List<SecurityLevels>();
         public static List<Project> lsPros = new List<Project>();
 
         public static String sFilePath = "%userprofile%\\Documents";
@@ -58,8 +56,6 @@ namespace Organiser
             lsCategories.Clear();
             lsJobTypes.Clear();
             lsJobs.Clear();
-            lsUsers.Clear();
-            lsSecLev.Clear();
         }
         public static Categories findCate(int ID)
         {
@@ -92,29 +88,6 @@ namespace Organiser
                     return p;
                 }
             }
-            return null;
-        }
-        public static SecurityLevels findSecLeve(int ID)
-        {
-          foreach(SecurityLevels s in lsSecLev)
-              {
-                  if (s.getSecurityID() == ID)
-                  {
-                      return s;
-                  }
-              }
-              return null;
-        }
-        public static User findUser(String Username)
-        {
-            foreach(User u in lsUsers)
-            {
-                if (u.getUserName() == Username)
-                {
-                    return u;
-                }
-            }
-
             return null;
         }
         public static Job findJob(int ID)
@@ -158,34 +131,6 @@ namespace Organiser
 
                 xmlWriter.WriteStartDocument();
                 xmlWriter.WriteStartElement("Root");
-                xmlWriter.WriteStartElement("Security");
-                foreach(SecurityLevels s in lsSecLev)
-                {
-                    xmlWriter.WriteStartElement("SecLev");
-                    xmlWriter.WriteAttributeString("ID", s.getSecurityID().ToString());
-                    xmlWriter.WriteAttributeString("Name", s.getSecurityName().ToString());
-                    xmlWriter.WriteAttributeString("SecLevel", s.getSecurityLevel().ToString());
-                    xmlWriter.WriteEndElement();
-                }
-                xmlWriter.WriteEndElement();
-
-                xmlWriter.WriteStartElement("Users");
-                foreach(User u in lsUsers)
-                {
-                    xmlWriter.WriteStartElement("User");
-                    xmlWriter.WriteAttributeString("Username", u.getUserName());
-                    xmlWriter.WriteAttributeString("FirstName", u.getUsrFirstName());
-                    xmlWriter.WriteAttributeString("Surname", u.getUsrSurname());
-                    xmlWriter.WriteAttributeString("CreatedBy", u.getUsrCreatedBy());
-                    xmlWriter.WriteAttributeString("CreatedDate", u.getUsrCreatedDate().ToString());
-                    xmlWriter.WriteAttributeString("Password", u.getUsrPass());
-                    xmlWriter.WriteAttributeString("Active", u.getUsrActive().ToString());
-                    xmlWriter.WriteAttributeString("Reset", u.getResetPass().ToString());
-                    xmlWriter.WriteAttributeString("SecLev", u.getSecLevel().getSecurityID().ToString());
-                    xmlWriter.WriteAttributeString("Phone", u.getUsrPhone());
-                    xmlWriter.WriteAttributeString("Email", u.getUsrEmail());
-                }
-                xmlWriter.WriteEndElement();
                 xmlWriter.WriteStartElement("Categories");
                 foreach(Categories c in lsCategories)
                 {
@@ -240,28 +185,6 @@ namespace Organiser
                 {
                     foreach (XmlElement ele in node)
                     {
-                        if(ele.Name == "SecLev")
-                        {
-                            SecurityLevels rebsl = new SecurityLevels(Int16.Parse(ele.Attributes["ID"].InnerText),
-                                                                                  ele.Attributes["Name"].InnerText,
-                                                                      Int16.Parse(ele.Attributes["SecLevel"].InnerText));
-                            lsSecLev.Add(rebsl);
-                        }
-                        if (ele.Name == "User")
-                        {
-                            User rebusr = new User(ele.Attributes["Username"].InnerText,
-                                                   ele.Attributes["FirstName"].InnerText,
-                                                   ele.Attributes["Surname"].InnerText,
-                                                   ele.Attributes["CreatedBy"].InnerText,
-                                                   DateTime.Parse(ele.Attributes["CreatedDate"].InnerText),
-                                                   ele.Attributes["Password"].InnerText,
-                                                   bool.Parse(ele.Attributes["Active"].InnerText),
-                                                   bool.Parse(ele.Attributes["Reset"].InnerText),
-                                                   findSecLeve(Int16.Parse(ele.Attributes["SecLev"].InnerText)),
-                                                   ele.Attributes["Phone"].InnerText,
-                                                   ele.Attributes["Email"].InnerText);
-                            lsUsers.Add(rebusr);
-                        }
                         if (ele.Name == "Category")
                         {
                             Categories Reb = new Categories(Int16.Parse(ele.Attributes["ID"].InnerText), 
