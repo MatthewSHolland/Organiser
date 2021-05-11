@@ -115,10 +115,10 @@ namespace Organiser
         {
             if(!Backend.bFileLoaded)
             {
-                createDialog("No Project Loaded", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Backend.createDialog("No Project Loaded", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            DialogResult res = createDialog("Do you want to save before closing?", "Save before exit?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult res = Backend.createDialog("Do you want to save before closing?", "Save before exit?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (res == DialogResult.Yes)
             {
                 Backend.Save();
@@ -149,7 +149,7 @@ namespace Organiser
 
             if (Backend.bFileLoaded)
             {
-                DialogResult res = createDialog("Do you want to save before closing?", "Save before exit?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                DialogResult res = Backend.createDialog("Do you want to save before closing?", "Save before exit?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                 if (res == DialogResult.Yes)
                 {
                     Backend.Save();
@@ -175,11 +175,6 @@ namespace Organiser
             open.ShowDialog();
             startComponents();
         }
-        private DialogResult createDialog(String Message, String Type, MessageBoxButtons buts, MessageBoxIcon icon)
-        {
-            DialogResult res = MessageBox.Show(Message, Type, buts, icon);
-            return res;
-        }
 
         public void clearDataGridControls()
         {
@@ -197,6 +192,8 @@ namespace Organiser
             btnAddJob.Visible = Backend.bFileLoaded;
             saveToolStripMenuItem.Enabled = Backend.bFileLoaded;
             closeProjectToolStripMenuItem.Enabled = Backend.bFileLoaded;
+            tsmEdit.Enabled = Backend.bFileLoaded;
+            TsmOps.Enabled = Backend.bFileLoaded;
         }
         private void createBackupToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -206,7 +203,7 @@ namespace Organiser
             }
             else
             {
-                createDialog("No Project Loaded", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Backend.createDialog("No Project Loaded", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

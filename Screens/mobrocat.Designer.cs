@@ -30,10 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mobrocat));
             this.dgvCateView = new System.Windows.Forms.DataGridView();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
             this.btnNewCate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCateView)).BeginInit();
             this.SuspendLayout();
@@ -57,37 +58,21 @@
             this.dgvCateView.TabIndex = 0;
             this.dgvCateView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // btnNext
+            // button1
             // 
-            this.btnNext.Image = global::Organiser.Properties.Resources.Check2;
-            this.btnNext.Location = new System.Drawing.Point(421, 517);
-            this.btnNext.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(87, 39);
-            this.btnNext.TabIndex = 2;
-            this.btnNext.Text = "Next";
-            this.btnNext.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Visible = false;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Image = global::Organiser.Properties.Resources.DeleteJob;
-            this.btnDelete.Location = new System.Drawing.Point(421, 109);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(87, 39);
-            this.btnDelete.TabIndex = 3;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.button1.Image = global::Organiser.Properties.Resources.Help30;
+            this.button1.Location = new System.Drawing.Point(421, 155);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(87, 39);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Help";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // btnExit
             // 
             this.btnExit.Image = global::Organiser.Properties.Resources.Close;
-            this.btnExit.Location = new System.Drawing.Point(421, 156);
+            this.btnExit.Location = new System.Drawing.Point(421, 201);
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(87, 39);
@@ -110,6 +95,33 @@
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Image = global::Organiser.Properties.Resources.DeleteJob;
+            this.btnDelete.Location = new System.Drawing.Point(421, 109);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(87, 39);
+            this.btnDelete.TabIndex = 3;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.Image = global::Organiser.Properties.Resources.Check2;
+            this.btnNext.Location = new System.Drawing.Point(421, 517);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(87, 39);
+            this.btnNext.TabIndex = 2;
+            this.btnNext.Text = "Next";
+            this.btnNext.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Visible = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
             // btnNewCate
             // 
             this.btnNewCate.Image = global::Organiser.Properties.Resources.NewJob;
@@ -128,6 +140,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(525, 571);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnDelete);
@@ -153,5 +166,6 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button button1;
     }
 }

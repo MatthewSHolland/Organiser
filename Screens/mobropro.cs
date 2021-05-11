@@ -67,20 +67,14 @@ namespace Organiser.Screens
             Backend.sFileName = Backend.findProject(getRowID()).getProName();
             Backend.sFilePath = Backend.findProject(getRowID()).getProDir();
             Boolean Choi = false;
-            if (createDialog("Are you sure you want to delete?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning).ToString() == "Yes")
+            if (Backend.createDialog("Are you sure you want to delete?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning).ToString() == "Yes")
             {
-                if (createDialog("Remove project files from Disk?", "Remove from Disk?", MessageBoxButtons.YesNo, MessageBoxIcon.Question).ToString() == "Yes") { Choi = true; };
+                if (Backend.createDialog("Remove project files from Disk?", "Remove from Disk?", MessageBoxButtons.YesNo, MessageBoxIcon.Question).ToString() == "Yes") { Choi = true; };
                 Backend.Delete(Choi);
             }
             Backend.SaveSystemFiles();
             PopulateDgv();
             this.Refresh(); 
-        }
-
-        private DialogResult createDialog(String Message, String Type, MessageBoxButtons buts, MessageBoxIcon icon)
-        {
-            DialogResult res = MessageBox.Show(Message, Type, buts, icon);
-            return res;
         }
 
         private void btnFind_Click(object sender, EventArgs e)

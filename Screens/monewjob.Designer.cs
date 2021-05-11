@@ -109,6 +109,7 @@
             // 
             // cbCategory
             // 
+            this.cbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategory.FormattingEnabled = true;
             this.cbCategory.Location = new System.Drawing.Point(386, 11);
             this.cbCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -128,6 +129,7 @@
             // 
             // cbJobType
             // 
+            this.cbJobType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbJobType.FormattingEnabled = true;
             this.cbJobType.Location = new System.Drawing.Point(386, 48);
             this.cbJobType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

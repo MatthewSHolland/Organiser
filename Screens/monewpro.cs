@@ -54,12 +54,12 @@ namespace Organiser.Screens
         {
             if(tbProjectDir.Text == "")
             {
-                createError("Please Enter a Directory");
+                Backend.createDialog("Please Select a Directory", "Missing Directory", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if(tbProjectName.Text == "")
             {
-                createError("Please Enter a Project Name");
+                Backend.createDialog("Please Enter a Project Name", "Missing Project Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -76,12 +76,6 @@ namespace Organiser.Screens
 
             if (Backend.bFileLoaded)
                 this.Dispose();
-        }
-
-        private void createError(String sErrMsg)
-        {
-            MessageBox.Show(sErrMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            
         }
     }
 }

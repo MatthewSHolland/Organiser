@@ -52,7 +52,7 @@ namespace Organiser.Screens
         {
             if (tbCateName.Text == "")
             {
-                MessageBox.Show("Please Enter a Category Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Backend.createDialog("Please Enter a Category Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if(Action == "New")

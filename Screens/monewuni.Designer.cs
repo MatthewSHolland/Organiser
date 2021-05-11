@@ -65,6 +65,7 @@
             // 
             // cbCate
             // 
+            this.cbCate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCate.FormattingEnabled = true;
             this.cbCate.Location = new System.Drawing.Point(118, 59);
             this.cbCate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -84,6 +85,7 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 

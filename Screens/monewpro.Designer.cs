@@ -88,7 +88,7 @@
             // btnNext
             // 
             this.btnNext.Image = global::Organiser.Properties.Resources.Check2;
-            this.btnNext.Location = new System.Drawing.Point(19, 102);
+            this.btnNext.Location = new System.Drawing.Point(328, 104);
             this.btnNext.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(87, 39);
@@ -101,7 +101,7 @@
             // btnCancel
             // 
             this.btnCancel.Image = global::Organiser.Properties.Resources.Close;
-            this.btnCancel.Location = new System.Drawing.Point(328, 102);
+            this.btnCancel.Location = new System.Drawing.Point(18, 104);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 39);

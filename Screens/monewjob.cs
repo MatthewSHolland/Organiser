@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Organiser.Screens
 {
     public partial class monewjob : Form
@@ -111,24 +112,15 @@ namespace Organiser.Screens
         {
             if (tbJobID.Text == "" || tbJobName.Text == "" || rtbDesc.Text == "")
             {
-                createDialog("All Fields Except Attachments MUST be filled in", "Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Backend.createDialog("All Fields Except Attachments MUST be filled in", "Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if (Backend.findJob(Int32.Parse(tbJobID.Text)) != null && Action != "Update")
             {
-                createDialog("Job with ID: " + tbJobID.Text + " Already Exists", "Job ID Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Backend.createDialog("Job with ID: " + tbJobID.Text + " Already Exists", "Job ID Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
-
-
             return true;
-            
-        }
-        private DialogResult createDialog(String Message, String Type, MessageBoxButtons buts, MessageBoxIcon icon)
-        {
-            DialogResult res = MessageBox.Show(Message, Type, buts, icon);
-            return res;
         }
         private void tbCancel_Click(object sender, EventArgs e)
         {

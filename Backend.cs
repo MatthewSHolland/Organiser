@@ -345,5 +345,11 @@ namespace Organiser
             return Cate;
         }
 
+        public static DialogResult createDialog(String Message, String Type, MessageBoxButtons buts, MessageBoxIcon icon)
+        {
+            DialogResult res = MessageBox.Show(Message, Type, buts, icon);
+            return res;
+        }
+
     }
 }

@@ -57,21 +57,43 @@ namespace Organiser.Screens
         private void btnSave_Click(object sender, EventArgs e)
         {
             int IDpull = Int16.Parse((cbCate.SelectedItem as ComboboxItem).Value.ToString());
-            if (Action == "Update")
+            if(Validation())
             {
-                JBT.setJobTypeCate(Backend.findCate(IDpull));
-                JBT.setJobTypeName(tbName.Text);
+                if (Action == "Update")
+                {
+                    JBT.setJobTypeCate(Backend.findCate(IDpull));
+                    JBT.setJobTypeName(tbName.Text);
+                }
+                else if (Action == "New")
+                {
+                    JBT = new JobType(Backend.getTypeID(), tbName.Text, Backend.findCate(IDpull));
+                    Backend.lsJobTypes.Add(JBT);
+                }
+                this.Dispose();
             }
-            if (Action == "New")
-            {
-                JBT = new JobType(Backend.getTypeID(), tbName.Text, Backend.findCate(IDpull));
-                Backend.lsJobTypes.Add(JBT);
-            }
-            this.Dispose();
+
         }
         private void cbCate_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private Boolean Validation()
+        {
+            if(tbName.Text != "")
+            {
+                return true;
+            }
+            else
+            {
+                Backend.createDialog("Job Type must have a name", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return false;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

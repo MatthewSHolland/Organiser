@@ -80,9 +80,16 @@ namespace Organiser.Screens
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult choice = MessageBox.Show("Do you want to delete this Category?","Delete?", MessageBoxButtons.YesNo);
+            DialogResult choice = MessageBox.Show("Do you want to delete this Category? It will also delete all connected units","Delete?", MessageBoxButtons.YesNo);
 
             if (choice == DialogResult.Yes) {
+                foreach(JobType JT in Backend.lsJobTypes.ToList())
+                {
+                    if (JT.getJobTypeCate() == Backend.findCate(getRowID()))
+                    {
+                        Backend.lsJobTypes.Remove(JT);
+                    }
+                }
                 Backend.lsCategories.Remove(Backend.findCate(getRowID()));
                 Populatedgv();
             } 
