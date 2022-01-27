@@ -21,10 +21,6 @@ namespace Organiser.Screens
             if (Action == "Start")
             {
                 btnNext.Visible = true;
-                JobType Investigation = new JobType(1, "Investigation", Backend.findCate(1));
-                JobType Development = new JobType(2, "Development", Backend.findCate(1));
-                Backend.lsJobTypes.Add(Investigation);
-                Backend.lsJobTypes.Add(Development);
             }
 
             Populatedgv();
@@ -38,35 +34,31 @@ namespace Organiser.Screens
             table.Columns.Add("Job Type ID");
             table.Columns.Add("Job Type Name");
             table.Columns.Add("Linked Category");
-
-            foreach (JobType j in Backend.lsJobTypes)
+            if(Backend.lsJobTypes.Any())
             {
-                table.Rows.Add(j.getJobTypeID(), j.getJobTypeName(), j.getJobTypeCate().getCategoryName());
+                foreach (JobType j in Backend.lsJobTypes)
+                {
+                    table.Rows.Add(j.getJobTypeID(), j.getJobTypeName(), j.getJobTypeCate().getCategoryName());
+
+                    dgvUnitView.DataSource = table;
+                }
             }
-
-            dgvUnitView.DataSource = table;
         }
-
         private int getRowID()
         {
             if (dgvUnitView.SelectedRows.Count > 0)
             {
                 return Int16.Parse(dgvUnitView.SelectedRows[0].Cells["Job Type ID"].Value.ToString());
             }
-
             return 1;
-
         }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             if (Action == "Start")
             {
                 Backend.lsJobTypes.Clear();
             }
-
-            this.Dispose();
-                
+            this.Dispose();     
         }
 
         private void btnNewUnit_Click(object sender, EventArgs e)
@@ -89,15 +81,45 @@ namespace Organiser.Screens
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult choice = MessageBox.Show("Do you want to delete this Job Type?", "Delete?", MessageBoxButtons.YesNo);
-
+            bool lFlagCate = false;
+            bool lFlagJob = true;
+            DialogResult choice = MessageBox.Show("Do you want to delete this Job Type?", "Delete?",
+                                                  MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            JobType toRemove = Backend.findJobType(getRowID());
             if (choice == DialogResult.Yes)
             {
-                Backend.lsJobTypes.Remove(Backend.findJobType(getRowID()));
-                Populatedgv();
+                foreach (JobType j in Backend.lsJobTypes)
+                {
+                    if (j == toRemove) { continue; }
+                    else if (j.getJobTypeCate() == toRemove.getJobTypeCate())
+                    {
+                        lFlagCate = true;
+                    }
+                }
+                foreach (Job job in Backend.lsJobs)
+                {
+                    if (job.GetJobType() == toRemove)
+                    {
+                        lFlagJob = false;
+                    }
+                }
+                if (lFlagCate && lFlagJob)
+                {
+                    Backend.lsJobTypes.Remove(Backend.findJobType(getRowID()));
+                    Populatedgv();
+                }
+                else if (!lFlagCate)
+                {
+                    MessageBox.Show("Cannot delete! Would leave a category without a unit",
+                  "Error on Delete", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (!lFlagJob)
+                {
+                    MessageBox.Show("Cannot delete! Currently being used by a Job",
+                    "Error on Delete", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
-
         private void btnNext_Click(object sender, EventArgs e)
         {
             Backend.SaveSystemFiles();

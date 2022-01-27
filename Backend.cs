@@ -26,13 +26,18 @@ namespace Organiser
         public static Boolean bFileLoaded = false;
 
         public static int ID;
-        public static int getCateID()
+        public static int NextCateID()
         {
-            if (lsCategories.Count > 0)
+            int high = 1;
+            if (lsCategories.Any())
             {
-                ID = Backend.lsCategories[Backend.lsCategories.Count - 1].getCategoryID() + 1;
+                foreach(Categories c in lsCategories)
+                {
+                    if(c.getCategoryID() > high) { high = c.getCategoryID(); }
+                }
+                return high + 1;
             }
-            return ID;
+            return high;
         }
 
         public static int getTypeID()
@@ -78,6 +83,19 @@ namespace Organiser
                 }
             }
             return null;
+        }
+        public static int NextJobTypeID()
+        {
+            int high = 1;
+            if(lsJobTypes.Any())
+            {
+                foreach(JobType j in lsJobTypes)
+                {
+                    if (j.getJobTypeID() > high) { high = j.getJobTypeID(); };
+                }
+                return high + 1;
+            }
+            return high;
         }
         public static Project findProject(String Name)
         {

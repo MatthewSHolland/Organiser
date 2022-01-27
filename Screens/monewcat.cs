@@ -57,7 +57,7 @@ namespace Organiser.Screens
             }
             if(Action == "New")
             {
-                Categories cAdd = new Categories(Backend.getCateID(), tbCateName.Text, color);
+                Categories cAdd = new Categories(Backend.NextCateID(), tbCateName.Text, color);
                 Backend.lsCategories.Add(cAdd);
             }
             if(Action == "Update")

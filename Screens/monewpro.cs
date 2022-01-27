@@ -49,7 +49,7 @@ namespace Organiser.Screens
             Backend.lsPros.Clear();
             this.Dispose();
         }
-
+        
         private void btnNext_Click(object sender, EventArgs e)
         {
             if(tbProjectDir.Text == "")
@@ -76,6 +76,11 @@ namespace Organiser.Screens
 
             if (Backend.bFileLoaded)
                 this.Dispose();
+        }
+        private void monewpro_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Backend.lsPros.Clear();
+            this.Dispose();
         }
     }
 }

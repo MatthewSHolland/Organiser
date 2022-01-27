@@ -129,6 +129,7 @@
             this.Name = "monewpro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New Project";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.monewpro_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

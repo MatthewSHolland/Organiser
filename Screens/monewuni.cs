@@ -66,7 +66,7 @@ namespace Organiser.Screens
                 }
                 else if (Action == "New")
                 {
-                    JBT = new JobType(Backend.getTypeID(), tbName.Text, Backend.findCate(IDpull));
+                    JBT = new JobType(Backend.NextJobTypeID(), tbName.Text, Backend.findCate(IDpull));
                     Backend.lsJobTypes.Add(JBT);
                 }
                 this.Dispose();

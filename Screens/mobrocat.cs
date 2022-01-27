@@ -29,6 +29,7 @@ namespace Organiser.Screens
                 Backend.lsCategories.Add(Complete);
                 Backend.lsCategories.Add(New);
             }
+            Populatedgv();
         }
         private void Populatedgv()
         {
@@ -67,7 +68,8 @@ namespace Organiser.Screens
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult choice = MessageBox.Show("Do you want to delete this Category? It will also delete all connected units","Delete?", MessageBoxButtons.YesNo);
+            DialogResult choice = MessageBox.Show("Do you want to delete this Category? It will also delete all connected units",
+                                                  "Delete?", MessageBoxButtons.YesNo);
 
             if (choice == DialogResult.Yes) {
                 foreach(JobType JT in Backend.lsJobTypes.ToList())
@@ -97,18 +99,47 @@ namespace Organiser.Screens
         {
             if(Action == "Start")
             {
-                Backend.ClearLists();
+                Backend.ClearLists();               
             }
+            else { GenDefaultTypes(); }
             this.Dispose();
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            mobrouni NewUni = new mobrouni("Start");
-            NewUni.ShowDialog();
+            if(Backend.lsCategories.Any()) {
+                GenDefaultTypes();
+                mobrouni NewUni = new mobrouni("Start");
+                NewUni.ShowDialog();
 
-            if (Backend.bFileLoaded)
-                this.Dispose();
+                if (Backend.bFileLoaded)
+                    this.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Before proceeding create a Category", "Error");
+            }
+
+        }
+        private void GenDefaultTypes()
+        {
+            bool bFound;
+            foreach(Categories c in Backend.lsCategories)
+            {
+                bFound = false;
+                foreach(JobType j in Backend.lsJobTypes)
+                {
+                    if (j.getJobTypeCate() == c)
+                    {
+                        bFound = true;
+                    }
+                }
+                if (!bFound)
+                {
+                    JobType CatSubDef = new JobType(Backend.NextJobTypeID(), "Default", c);
+                    Backend.lsJobTypes.Add(CatSubDef);
+                }
+            }
         }
     }
 }
