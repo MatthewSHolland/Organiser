@@ -21,11 +21,7 @@ namespace Organiser.Screens
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            Backend.ClearLists();
-            Backend.sFileName = Backend.findProject(getRowID()).getProName();
-            Backend.sFilePath = Backend.findProject(getRowID()).getProDir();
-            Backend.Load();
-            this.Dispose();
+            loadProject();
         }
 
         private void PopulateDgv()
@@ -54,7 +50,6 @@ namespace Organiser.Screens
             }
 
             return null;
-
         }
 
         private void mobropro_FormClosing(object sender, FormClosingEventArgs e)
@@ -77,14 +72,21 @@ namespace Organiser.Screens
             this.Refresh(); 
         }
 
-        private void btnFind_Click(object sender, EventArgs e)
+        private void dgvProView_DoubleClick(object sender, EventArgs e)
         {
-
+            loadProject();
         }
 
-        private void mobropro_Load(object sender, EventArgs e)
+        private void loadProject()
         {
-
+            if (Backend.findProject(getRowID()) != null)
+            {
+                Backend.ClearLists();
+                Backend.sFileName = Backend.findProject(getRowID()).getProName();
+                Backend.sFilePath = Backend.findProject(getRowID()).getProDir();
+                Backend.Load();
+                this.Dispose();
+            }
         }
     }
 }

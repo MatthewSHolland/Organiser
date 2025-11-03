@@ -141,5 +141,10 @@ namespace Organiser.Screens
                 }
             }
         }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            Backend.createDialog("This screen allows you to create a categories to group your Jobs. This could be project grouping, or status of the ticket.", "Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

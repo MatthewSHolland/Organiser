@@ -171,9 +171,13 @@ namespace Organiser
         protected void Grid_MouseDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             String ID = (sender as DataGridView).Rows[e.RowIndex].Cells[0].Value.ToString();
-            Screens.monewjob open = new Screens.monewjob("Update",null,Int32.Parse(ID));
-            open.ShowDialog();
-            startComponents();
+            try { 
+                Screens.monewjob open = new Screens.monewjob("Update", null, Int32.Parse(ID));
+                open.ShowDialog();
+                startComponents();
+            } catch(FormatException) {
+               
+            }
         }
 
         public void clearDataGridControls()
