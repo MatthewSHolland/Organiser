@@ -98,7 +98,7 @@ namespace Organiser.Screens
                 }
                 foreach (Job job in Backend.lsJobs)
                 {
-                    if (job.GetJobType() == toRemove)
+                    if (job.getJobType() == toRemove)
                     {
                         lFlagJob = false;
                     }

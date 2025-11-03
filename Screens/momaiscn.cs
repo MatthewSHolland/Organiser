@@ -14,6 +14,7 @@ namespace Organiser
     public partial class momaiscn : Form
     {
         public List<DataGridView> Grids = new List<DataGridView>();
+        String currentID;
         public momaiscn()
         {
             InitializeComponent();
@@ -38,7 +39,7 @@ namespace Organiser
                 DGVContain.AutoScroll = true;
                 DGVContain.AutoSize = true;
                 DGVContain.VerticalScroll.Visible = true;
-                DGVContain.Anchor = (AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom);
+                DGVContain.Anchor = (AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom);
 
                 DGVContain.Name = "ContainerforDGV";
                 foreach (Categories c in Backend.lsCategories)
@@ -49,15 +50,19 @@ namespace Organiser
                     table.Columns.Add("Job Desc");
                     table.Columns.Add("Job Type");
                     table.Columns.Add("Attachment");
+
                     Label tableHead = new Label();
                     tableHead.Text = c.getCategoryName();
                     tableHead.Location = new Point(XLoc, YLoc);
                     tableHead.Size = new Size(DGVContain.Size.Width - 20, 20);
                     tableHead.TextAlign = ContentAlignment.MiddleCenter;
+
                     YLoc = YLoc + 30;
                     DataGridView Cate = new DataGridView();
                     Backend.SetDGV(Cate, c.getCategoryName() + c.getCategoryID().ToString(), c.getColor(), new Point(XLoc, YLoc), new Size(DGVContain.Size.Width - 20, Height));
+
                     Cate.CellDoubleClick += new DataGridViewCellEventHandler(this.Grid_MouseDoubleClick);
+                    Cate.CellClick += new DataGridViewCellEventHandler(this.Grid_MouseClick);
 
                     foreach (JobType JT in Backend.lsJobTypes)
                     {
@@ -65,10 +70,10 @@ namespace Organiser
                         {
                             foreach (Job J in Backend.lsJobs)
                             {
-                                if (J.GetJobType() == JT)
+                                if (J.getJobType() == JT)
                                 {
                                     table.Rows.Add(J.getJobID(), J.getJobName(), J.getJobDesc(),
-                                                   J.GetJobType().getJobTypeName(), J.getAttachment());
+                                                   J.getJobType().getJobTypeName(), J.getAttachment());
                                 }
                             }
                         }
@@ -179,7 +184,12 @@ namespace Organiser
                
             }
         }
+        protected void Grid_MouseClick(object sender, DataGridViewCellEventArgs e)
+        {
+                btnDeleteJob.Enabled = true;
 
+            currentID = (sender as DataGridView).Rows[e.RowIndex].Cells[0].Value.ToString();
+        }
         public void clearDataGridControls()
         {
             foreach (var cntrl in Controls)
@@ -194,6 +204,7 @@ namespace Organiser
         public void setControlState()
         {
             btnAddJob.Visible = Backend.bFileLoaded;
+            btnDeleteJob.Visible = Backend.bFileLoaded;
             saveToolStripMenuItem.Enabled = Backend.bFileLoaded;
             closeProjectToolStripMenuItem.Enabled = Backend.bFileLoaded;
             tsmEdit.Enabled = Backend.bFileLoaded;
@@ -210,6 +221,19 @@ namespace Organiser
                 Backend.createDialog("No Project Loaded", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void btnDeleteJob_Click(object sender, EventArgs e)
+        {
+            DialogResult choice = MessageBox.Show("Do you want to delete this Job? This cannot be undone",
+                                      "Delete?", MessageBoxButtons.YesNo);
+            
+            if (choice == DialogResult.Yes)
+            {
+                Job toRemove = Backend.findJob(Int32.Parse(currentID));
+                Backend.lsJobs.Remove(toRemove);
+                startComponents(); //This needs improvement, we shouldn't need to recreate all dgv on deletion
+            }
         }
     }
 }
