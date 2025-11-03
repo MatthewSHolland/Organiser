@@ -152,7 +152,6 @@ namespace Organiser
                 xmlWriter.WriteStartElement("Categories");
                 foreach(Categories c in lsCategories)
                 {
-                    Console.WriteLine("Looking at: " + c.getCategoryName());
                     xmlWriter.WriteStartElement("Category");
                     xmlWriter.WriteAttributeString("ID", c.getCategoryID().ToString());
                     xmlWriter.WriteAttributeString("Name", c.getCategoryName());
@@ -193,7 +192,6 @@ namespace Organiser
         public static void Load()
         {
             String fp = sFilePath + "\\" + sFileName + ".xml";
-            Console.WriteLine("trying to load: " + fp);
             ClearLists();
             if (File.Exists(fp))
             {

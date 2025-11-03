@@ -73,8 +73,6 @@ namespace Organiser.Screens
             cd.SolidColorOnly = true;
             cd.ShowDialog();
             color = cd.Color;
-            Console.WriteLine(cd.Color.ToArgb());
-            Console.WriteLine(Color.FromArgb(cd.Color.ToArgb()));
             tbColorPrev.BackColor = color;
         }
     }

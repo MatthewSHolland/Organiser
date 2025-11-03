@@ -53,6 +53,7 @@
             this.dgvProView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProView.Size = new System.Drawing.Size(608, 377);
             this.dgvProView.TabIndex = 0;
+            this.dgvProView.DoubleClick += new System.EventHandler(this.dgvProView_DoubleClick);
             // 
             // btnFind
             // 
@@ -65,7 +66,6 @@
             this.btnFind.Text = "Find";
             this.btnFind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFind.UseVisualStyleBackColor = true;
-            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // btnDelete
             // 
@@ -108,7 +108,7 @@
             // 
             // mobropro
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(643, 445);
@@ -117,14 +117,13 @@
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.dgvProView);
-            this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "mobropro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Open Project";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.mobropro_FormClosing);
-            this.Load += new System.EventHandler(this.mobropro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProView)).EndInit();
             this.ResumeLayout(false);
 
