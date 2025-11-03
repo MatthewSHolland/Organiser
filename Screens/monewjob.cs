@@ -63,11 +63,12 @@ namespace Organiser.Screens
             {
                 jobUpd = Backend.findJob(ID);
                 if (jobUpd != null)
-                {
+                {         
                     tbJobID.Text = jobUpd.getJobID().ToString();
                     tbJobName.Text = jobUpd.getJobName();
                     rtbDesc.Text = jobUpd.getJobDesc();
-                    cbJobType.SelectedIndex = cbJobType.FindString(jobUpd.GetJobType().getJobTypeName());
+                    cbJobType.SelectedIndex = cbJobType.FindString(jobUpd.getJobType().getJobTypeName());
+                    cbCategory.SelectedIndex = cbCategory.FindString(jobUpd.getJobType().getJobTypeCate().getCategoryName());
                     tbAttach.Text = jobUpd.getAttachment();
                     tbJobID.Enabled = false;
                 }

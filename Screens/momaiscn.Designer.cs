@@ -44,6 +44,7 @@
             this.createBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restoreFromBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAddJob = new System.Windows.Forms.Button();
+            this.btnDeleteJob = new System.Windows.Forms.Button();
             this.msStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +57,7 @@
             this.msStrip.Location = new System.Drawing.Point(0, 0);
             this.msStrip.Name = "msStrip";
             this.msStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.msStrip.Size = new System.Drawing.Size(523, 25);
+            this.msStrip.Size = new System.Drawing.Size(523, 24);
             this.msStrip.TabIndex = 0;
             this.msStrip.Text = "menuStrip1";
             // 
@@ -68,43 +69,43 @@
             this.saveToolStripMenuItem,
             this.closeProjectToolStripMenuItem,
             this.exitProgramToolStripMenuItem});
-            this.tsmFile.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsmFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsmFile.Name = "tsmFile";
-            this.tsmFile.Size = new System.Drawing.Size(40, 21);
+            this.tsmFile.Size = new System.Drawing.Size(39, 20);
             this.tsmFile.Text = "File";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // closeProjectToolStripMenuItem
             // 
             this.closeProjectToolStripMenuItem.Name = "closeProjectToolStripMenuItem";
-            this.closeProjectToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.closeProjectToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.closeProjectToolStripMenuItem.Text = "Close Project";
             this.closeProjectToolStripMenuItem.Click += new System.EventHandler(this.closeProjectToolStripMenuItem_Click);
             // 
             // exitProgramToolStripMenuItem
             // 
             this.exitProgramToolStripMenuItem.Name = "exitProgramToolStripMenuItem";
-            this.exitProgramToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.exitProgramToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.exitProgramToolStripMenuItem.Text = "Exit Program";
             this.exitProgramToolStripMenuItem.Click += new System.EventHandler(this.exitProgramToolStripMenuItem_Click);
             // 
@@ -113,22 +114,22 @@
             this.tsmEdit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.catagoriesToolStripMenuItem,
             this.jobTypesToolStripMenuItem});
-            this.tsmEdit.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsmEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsmEdit.Name = "tsmEdit";
-            this.tsmEdit.Size = new System.Drawing.Size(42, 21);
+            this.tsmEdit.Size = new System.Drawing.Size(40, 20);
             this.tsmEdit.Text = "Edit";
             // 
             // catagoriesToolStripMenuItem
             // 
             this.catagoriesToolStripMenuItem.Name = "catagoriesToolStripMenuItem";
-            this.catagoriesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.catagoriesToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.catagoriesToolStripMenuItem.Text = "Catagories";
             this.catagoriesToolStripMenuItem.Click += new System.EventHandler(this.catagoriesToolStripMenuItem_Click);
             // 
             // jobTypesToolStripMenuItem
             // 
             this.jobTypesToolStripMenuItem.Name = "jobTypesToolStripMenuItem";
-            this.jobTypesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.jobTypesToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.jobTypesToolStripMenuItem.Text = "Job Types";
             this.jobTypesToolStripMenuItem.Click += new System.EventHandler(this.jobTypesToolStripMenuItem_Click);
             // 
@@ -136,9 +137,9 @@
             // 
             this.TsmOps.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.backupToolStripMenuItem});
-            this.TsmOps.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TsmOps.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TsmOps.Name = "TsmOps";
-            this.TsmOps.Size = new System.Drawing.Size(66, 21);
+            this.TsmOps.Size = new System.Drawing.Size(61, 20);
             this.TsmOps.Text = "Options";
             // 
             // backupToolStripMenuItem
@@ -147,25 +148,25 @@
             this.createBackupToolStripMenuItem,
             this.restoreFromBackupToolStripMenuItem});
             this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
-            this.backupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.backupToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.backupToolStripMenuItem.Text = "Backup";
             // 
             // createBackupToolStripMenuItem
             // 
             this.createBackupToolStripMenuItem.Name = "createBackupToolStripMenuItem";
-            this.createBackupToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.createBackupToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.createBackupToolStripMenuItem.Text = "Create Backup";
             this.createBackupToolStripMenuItem.Click += new System.EventHandler(this.createBackupToolStripMenuItem_Click);
             // 
             // restoreFromBackupToolStripMenuItem
             // 
             this.restoreFromBackupToolStripMenuItem.Name = "restoreFromBackupToolStripMenuItem";
-            this.restoreFromBackupToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.restoreFromBackupToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.restoreFromBackupToolStripMenuItem.Text = "Restore from Backup";
             // 
             // btnAddJob
             // 
-            this.btnAddJob.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddJob.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddJob.Image = global::Organiser.Properties.Resources.NewJob;
             this.btnAddJob.Location = new System.Drawing.Point(15, 34);
             this.btnAddJob.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -178,15 +179,32 @@
             this.btnAddJob.Visible = false;
             this.btnAddJob.Click += new System.EventHandler(this.btnAddJob_Click);
             // 
+            // btnDeleteJob
+            // 
+            this.btnDeleteJob.Enabled = false;
+            this.btnDeleteJob.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteJob.Image = global::Organiser.Properties.Resources.DeleteJob;
+            this.btnDeleteJob.Location = new System.Drawing.Point(89, 34);
+            this.btnDeleteJob.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDeleteJob.Name = "btnDeleteJob";
+            this.btnDeleteJob.Size = new System.Drawing.Size(68, 57);
+            this.btnDeleteJob.TabIndex = 2;
+            this.btnDeleteJob.Text = "Delete Job";
+            this.btnDeleteJob.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnDeleteJob.UseVisualStyleBackColor = true;
+            this.btnDeleteJob.Visible = false;
+            this.btnDeleteJob.Click += new System.EventHandler(this.btnDeleteJob_Click);
+            // 
             // momaiscn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(523, 783);
+            this.Controls.Add(this.btnDeleteJob);
             this.Controls.Add(this.btnAddJob);
             this.Controls.Add(this.msStrip);
-            this.Font = new System.Drawing.Font("Century Gothic", 8F);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.msStrip;
@@ -219,6 +237,7 @@
         private System.Windows.Forms.ToolStripMenuItem backupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createBackupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem restoreFromBackupToolStripMenuItem;
+        private System.Windows.Forms.Button btnDeleteJob;
     }
 }
 

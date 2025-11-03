@@ -37,7 +37,7 @@ namespace Organiser
             return JobDesc;
 
         }
-        public JobType GetJobType()
+        public JobType getJobType()
         {
             return JobType;
         }

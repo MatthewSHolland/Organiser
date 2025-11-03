@@ -178,7 +178,7 @@ namespace Organiser
                     xmlWriter.WriteAttributeString("ID", j.getJobID().ToString());
                     xmlWriter.WriteAttributeString("Name", j.getJobName());
                     xmlWriter.WriteAttributeString("Desc", j.getJobDesc());
-                    xmlWriter.WriteAttributeString("JobType", j.GetJobType().getJobTypeID().ToString());
+                    xmlWriter.WriteAttributeString("JobType", j.getJobType().getJobTypeID().ToString());
                     xmlWriter.WriteAttributeString("Attachment", j.getAttachment());
                     xmlWriter.WriteEndElement();
                 }
@@ -266,11 +266,6 @@ namespace Organiser
             }
         }
 
-        public static void CreateBackup()
-        {
-
-        }
-
         public static DataGridView SetDGV(DataGridView Cate, String Name, Color Background, Point loc, Size size)
         {
             Cate.Location = loc;
@@ -280,7 +275,8 @@ namespace Organiser
             Cate.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Cate.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             Cate.ReadOnly = true;
-            Cate.Anchor = (AnchorStyles.Left | AnchorStyles.Right);
+            Cate.Anchor = (AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top);
+            Cate.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             return Cate;
         }
 
