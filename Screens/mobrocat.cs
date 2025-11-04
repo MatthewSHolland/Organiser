@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Organiser.Screens
@@ -38,10 +34,10 @@ namespace Organiser.Screens
             table.Columns.Add("Category Name");
             table.Columns.Add("Colour");
 
-            foreach(Categories c in Backend.lsCategories)
+            foreach (Categories c in Backend.lsCategories)
             {
                 table.Rows.Add(c.getCategoryID(), c.getCategoryName(), c.getColor());
-                
+
             }
 
             dgvCateView.DataSource = table;
@@ -57,13 +53,13 @@ namespace Organiser.Screens
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if(dgvCateView.SelectedRows.Count > 0)
+            if (dgvCateView.SelectedRows.Count > 0)
             {
                 Screens.monewcat Update = new monewcat("Update", getRowID());
                 Update.ShowDialog();
             }
             Populatedgv();
-            
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -71,8 +67,9 @@ namespace Organiser.Screens
             DialogResult choice = MessageBox.Show("Do you want to delete this Category? It will also delete all connected units",
                                                   "Delete?", MessageBoxButtons.YesNo);
 
-            if (choice == DialogResult.Yes) {
-                foreach(JobType JT in Backend.lsJobTypes.ToList())
+            if (choice == DialogResult.Yes)
+            {
+                foreach (JobType JT in Backend.lsJobTypes.ToList())
                 {
                     if (JT.getJobTypeCate() == Backend.findCate(getRowID()))
                     {
@@ -81,7 +78,7 @@ namespace Organiser.Screens
                 }
                 Backend.lsCategories.Remove(Backend.findCate(getRowID()));
                 Populatedgv();
-            } 
+            }
         }
 
         private int getRowID()
@@ -92,14 +89,14 @@ namespace Organiser.Screens
             }
 
             return 0;
-            
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            if(Action == "Start")
+            if (Action == "Start")
             {
-                Backend.ClearLists();               
+                Backend.ClearLists();
             }
             else { GenDefaultTypes(); }
             this.Dispose();
@@ -107,7 +104,8 @@ namespace Organiser.Screens
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if(Backend.lsCategories.Any()) {
+            if (Backend.lsCategories.Any())
+            {
                 GenDefaultTypes();
                 mobrouni NewUni = new mobrouni("Start");
                 NewUni.ShowDialog();
@@ -124,10 +122,10 @@ namespace Organiser.Screens
         private void GenDefaultTypes()
         {
             bool bFound;
-            foreach(Categories c in Backend.lsCategories)
+            foreach (Categories c in Backend.lsCategories)
             {
                 bFound = false;
-                foreach(JobType j in Backend.lsJobTypes)
+                foreach (JobType j in Backend.lsJobTypes)
                 {
                     if (j.getJobTypeCate() == c)
                     {

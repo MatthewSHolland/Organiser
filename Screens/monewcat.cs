@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Organiser.Screens
@@ -18,7 +11,7 @@ namespace Organiser.Screens
         private Color color = Color.White;
         public monewcat(String action, int ID)
         {
-            
+
             this.Action = action;
 
             InitializeComponent();
@@ -55,12 +48,12 @@ namespace Organiser.Screens
                 Backend.createDialog("Please Enter a Category Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if(Action == "New")
+            if (Action == "New")
             {
                 Categories cAdd = new Categories(Backend.NextCateID(), tbCateName.Text, color);
                 Backend.lsCategories.Add(cAdd);
             }
-            if(Action == "Update")
+            if (Action == "Update")
             {
                 CateUpd.setCategoryName(tbCateName.Text);
                 CateUpd.setColor(color);

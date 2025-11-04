@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Organiser
 {
@@ -11,10 +7,10 @@ namespace Organiser
         private String sProjectName;
         private String sProjectDir;
 
-        public Project(String sprojectName, String sprojectDir) 
+        public Project(String sprojectName, String sprojectDir)
         {
-                this.sProjectName = sprojectName;
-                this.sProjectDir = sprojectDir;
+            this.sProjectName = sprojectName;
+            this.sProjectDir = sprojectDir;
         }
 
         public String getProName()

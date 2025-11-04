@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Organiser
 {
@@ -13,14 +9,16 @@ namespace Organiser
         private String JobDesc;
         private JobType JobType;
         private String Attachment;
+        private DateTime deadLine;
 
-        public Job(int jobID, String jobName, String JobDesc, JobType jobType, 
+        public Job(int jobID, String jobName, String JobDesc, JobType jobType, DateTime deadLine,
                    String attachment = null)
         {
             this.JobID = jobID;
             this.JobName = jobName;
             this.JobDesc = JobDesc;
             this.JobType = jobType;
+            this.deadLine = deadLine;
             this.Attachment = attachment;
         }
 
@@ -45,6 +43,10 @@ namespace Organiser
         {
             return Attachment;
         }
+        public DateTime getDeadline()
+        {
+            return deadLine;
+        }
         public void setJobName(String jobName)
         {
             this.JobName = jobName;
@@ -61,6 +63,11 @@ namespace Organiser
         public void setAttachment(String attachment)
         {
             this.Attachment = attachment;
+        }
+
+        public void setDeadline(DateTime deadline)
+        {
+            this.deadLine = deadline;
         }
     }
 }

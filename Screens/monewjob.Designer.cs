@@ -44,6 +44,8 @@
             this.tbOkay = new System.Windows.Forms.Button();
             this.tbCancel = new System.Windows.Forms.Button();
             this.tbBrowse = new System.Windows.Forms.Button();
+            this.dtpDeadline = new System.Windows.Forms.DateTimePicker();
+            this.lblDeadline = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblJobId
@@ -51,7 +53,7 @@
             this.lblJobId.AutoSize = true;
             this.lblJobId.Location = new System.Drawing.Point(35, 16);
             this.lblJobId.Name = "lblJobId";
-            this.lblJobId.Size = new System.Drawing.Size(42, 16);
+            this.lblJobId.Size = new System.Drawing.Size(38, 13);
             this.lblJobId.TabIndex = 0;
             this.lblJobId.Text = "Job ID";
             // 
@@ -60,7 +62,7 @@
             this.tbJobID.Location = new System.Drawing.Point(86, 12);
             this.tbJobID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbJobID.Name = "tbJobID";
-            this.tbJobID.Size = new System.Drawing.Size(209, 21);
+            this.tbJobID.Size = new System.Drawing.Size(209, 20);
             this.tbJobID.TabIndex = 1;
             // 
             // lblJobName
@@ -68,7 +70,7 @@
             this.lblJobName.AutoSize = true;
             this.lblJobName.Location = new System.Drawing.Point(15, 59);
             this.lblJobName.Name = "lblJobName";
-            this.lblJobName.Size = new System.Drawing.Size(64, 16);
+            this.lblJobName.Size = new System.Drawing.Size(55, 13);
             this.lblJobName.TabIndex = 2;
             this.lblJobName.Text = "Job Name";
             // 
@@ -77,7 +79,7 @@
             this.tbJobName.Location = new System.Drawing.Point(86, 57);
             this.tbJobName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbJobName.Name = "tbJobName";
-            this.tbJobName.Size = new System.Drawing.Size(209, 21);
+            this.tbJobName.Size = new System.Drawing.Size(209, 20);
             this.tbJobName.TabIndex = 3;
             // 
             // lblJobDesc
@@ -85,7 +87,7 @@
             this.lblJobDesc.AutoSize = true;
             this.lblJobDesc.Location = new System.Drawing.Point(15, 103);
             this.lblJobDesc.Name = "lblJobDesc";
-            this.lblJobDesc.Size = new System.Drawing.Size(90, 16);
+            this.lblJobDesc.Size = new System.Drawing.Size(80, 13);
             this.lblJobDesc.TabIndex = 4;
             this.lblJobDesc.Text = "Job Description";
             // 
@@ -103,7 +105,7 @@
             this.lblCate.AutoSize = true;
             this.lblCate.Location = new System.Drawing.Point(320, 15);
             this.lblCate.Name = "lblCate";
-            this.lblCate.Size = new System.Drawing.Size(59, 16);
+            this.lblCate.Size = new System.Drawing.Size(49, 13);
             this.lblCate.TabIndex = 6;
             this.lblCate.Text = "Category";
             // 
@@ -114,7 +116,7 @@
             this.cbCategory.Location = new System.Drawing.Point(386, 11);
             this.cbCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbCategory.Name = "cbCategory";
-            this.cbCategory.Size = new System.Drawing.Size(142, 24);
+            this.cbCategory.Size = new System.Drawing.Size(142, 21);
             this.cbCategory.TabIndex = 7;
             this.cbCategory.SelectedIndexChanged += new System.EventHandler(this.cbCategory_SelectedIndexChanged);
             // 
@@ -123,7 +125,7 @@
             this.lblJobType.AutoSize = true;
             this.lblJobType.Location = new System.Drawing.Point(317, 52);
             this.lblJobType.Name = "lblJobType";
-            this.lblJobType.Size = new System.Drawing.Size(57, 16);
+            this.lblJobType.Size = new System.Drawing.Size(51, 13);
             this.lblJobType.TabIndex = 8;
             this.lblJobType.Text = "Job Type";
             // 
@@ -134,7 +136,7 @@
             this.cbJobType.Location = new System.Drawing.Point(386, 48);
             this.cbJobType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbJobType.Name = "cbJobType";
-            this.cbJobType.Size = new System.Drawing.Size(142, 24);
+            this.cbJobType.Size = new System.Drawing.Size(142, 21);
             this.cbJobType.TabIndex = 9;
             // 
             // lblAttach
@@ -142,7 +144,7 @@
             this.lblAttach.AutoSize = true;
             this.lblAttach.Location = new System.Drawing.Point(306, 207);
             this.lblAttach.Name = "lblAttach";
-            this.lblAttach.Size = new System.Drawing.Size(108, 16);
+            this.lblAttach.Size = new System.Drawing.Size(93, 13);
             this.lblAttach.TabIndex = 16;
             this.lblAttach.Text = "Attachment Folder";
             // 
@@ -151,7 +153,7 @@
             this.tbAttach.Location = new System.Drawing.Point(309, 228);
             this.tbAttach.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbAttach.Name = "tbAttach";
-            this.tbAttach.Size = new System.Drawing.Size(181, 21);
+            this.tbAttach.Size = new System.Drawing.Size(181, 20);
             this.tbAttach.TabIndex = 17;
             // 
             // tbOkay
@@ -190,11 +192,30 @@
             this.tbBrowse.TabIndex = 18;
             this.tbBrowse.UseVisualStyleBackColor = true;
             // 
+            // dtpDeadline
+            // 
+            this.dtpDeadline.Location = new System.Drawing.Point(309, 175);
+            this.dtpDeadline.MinDate = new System.DateTime(2025, 11, 3, 0, 0, 0, 0);
+            this.dtpDeadline.Name = "dtpDeadline";
+            this.dtpDeadline.Size = new System.Drawing.Size(219, 20);
+            this.dtpDeadline.TabIndex = 21;
+            // 
+            // lblDeadline
+            // 
+            this.lblDeadline.AutoSize = true;
+            this.lblDeadline.Location = new System.Drawing.Point(306, 150);
+            this.lblDeadline.Name = "lblDeadline";
+            this.lblDeadline.Size = new System.Drawing.Size(49, 13);
+            this.lblDeadline.TabIndex = 22;
+            this.lblDeadline.Text = "Deadline";
+            // 
             // monewjob
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(549, 329);
+            this.Controls.Add(this.lblDeadline);
+            this.Controls.Add(this.dtpDeadline);
             this.Controls.Add(this.tbCancel);
             this.Controls.Add(this.tbOkay);
             this.Controls.Add(this.tbBrowse);
@@ -210,7 +231,7 @@
             this.Controls.Add(this.lblJobName);
             this.Controls.Add(this.tbJobID);
             this.Controls.Add(this.lblJobId);
-            this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "monewjob";
@@ -238,5 +259,7 @@
         private System.Windows.Forms.Button tbBrowse;
         private System.Windows.Forms.Button tbOkay;
         private System.Windows.Forms.Button tbCancel;
+        private System.Windows.Forms.DateTimePicker dtpDeadline;
+        private System.Windows.Forms.Label lblDeadline;
     }
 }

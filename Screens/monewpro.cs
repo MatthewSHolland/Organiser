@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Organiser.Screens
@@ -30,7 +23,7 @@ namespace Organiser.Screens
 
             using (FolderBrowserDialog fbdNew = new FolderBrowserDialog())
             {
-                
+
 
                 DialogResult drRes = fbdNew.ShowDialog();
 
@@ -50,7 +43,7 @@ namespace Organiser.Screens
             Backend.lsPros.Clear();
             this.Dispose();
         }
-        
+
         private void btnNext_Click(object sender, EventArgs e)
         {
             if (fileNameCheck(tbProjectName.Text, tbProjectDir.Text) == false) { return; }
@@ -76,14 +69,16 @@ namespace Organiser.Screens
 
         private bool fileNameCheck(string fileName, string directory)
         {
-            if (fileName == null || fileName.Length == 0 || fileName == "") {
+            if (fileName == null || fileName.Length == 0 || fileName == "")
+            {
                 Backend.createDialog("Project Name cannot be blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false; 
+                return false;
             }
 
-            if (fileName.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0) {
+            if (fileName.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0)
+            {
                 Backend.createDialog("Project Name cannot contain any special characters", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false; 
+                return false;
             }
 
             if (directory == "" || directory.Length == 0 || directory == null)
@@ -92,9 +87,10 @@ namespace Organiser.Screens
                 return false;
             }
 
-            if(File.Exists(directory + "\\" + fileName + ".xml")) {
+            if (File.Exists(directory + "\\" + fileName + ".xml"))
+            {
                 Backend.createDialog("This file already exists", "File Exists", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false; 
+                return false;
             }
             return true;
         }

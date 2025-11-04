@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Organiser.Screens
@@ -34,7 +29,7 @@ namespace Organiser.Screens
             table.Columns.Add("Job Type ID");
             table.Columns.Add("Job Type Name");
             table.Columns.Add("Linked Category");
-            if(Backend.lsJobTypes.Any())
+            if (Backend.lsJobTypes.Any())
             {
                 foreach (JobType j in Backend.lsJobTypes)
                 {
@@ -58,7 +53,7 @@ namespace Organiser.Screens
             {
                 Backend.lsJobTypes.Clear();
             }
-            this.Dispose();     
+            this.Dispose();
         }
 
         private void btnNewUnit_Click(object sender, EventArgs e)
