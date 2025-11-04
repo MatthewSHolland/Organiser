@@ -1,14 +1,11 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-using System.Drawing;
 using System.Windows.Forms;
-using System.Data;
+using System.Xml;
 
 namespace Organiser
 {
@@ -31,9 +28,9 @@ namespace Organiser
             int high = 1;
             if (lsCategories.Any())
             {
-                foreach(Categories c in lsCategories)
+                foreach (Categories c in lsCategories)
                 {
-                    if(c.getCategoryID() > high) { high = c.getCategoryID(); }
+                    if (c.getCategoryID() > high) { high = c.getCategoryID(); }
                 }
                 return high + 1;
             }
@@ -64,9 +61,9 @@ namespace Organiser
         }
         public static Categories findCate(int ID)
         {
-            foreach(Categories c in lsCategories)
+            foreach (Categories c in lsCategories)
             {
-                if(ID == c.getCategoryID())
+                if (ID == c.getCategoryID())
                 {
                     return c;
                 }
@@ -87,11 +84,12 @@ namespace Organiser
         public static int NextJobTypeID()
         {
             int high = 1;
-            if(lsJobTypes.Any())
+            if (lsJobTypes.Any())
             {
-                foreach(JobType j in lsJobTypes)
+                foreach (JobType j in lsJobTypes)
                 {
-                    if (j.getJobTypeID() > high) { high = j.getJobTypeID(); };
+                    if (j.getJobTypeID() > high) { high = j.getJobTypeID(); }
+                    ;
                 }
                 return high + 1;
             }
@@ -99,7 +97,7 @@ namespace Organiser
         }
         public static Project findProject(String Name)
         {
-            foreach(Project p in lsPros)
+            foreach (Project p in lsPros)
             {
                 if (p.getProName() == Name)
                 {
@@ -110,9 +108,9 @@ namespace Organiser
         }
         public static Job findJob(int ID)
         {
-            foreach(Job j in lsJobs)
+            foreach (Job j in lsJobs)
             {
-                if(j.getJobID() == ID)
+                if (j.getJobID() == ID)
                 {
                     return j;
                 }
@@ -121,9 +119,9 @@ namespace Organiser
         }
         public static Project findPro(String ProName)
         {
-            foreach(Project p in lsPros)
+            foreach (Project p in lsPros)
             {
-                if(Path.Combine(p.getProDir(), p.getProName()) == ProName)
+                if (Path.Combine(p.getProDir(), p.getProName()) == ProName)
                 {
                     return p;
                 }
@@ -133,7 +131,7 @@ namespace Organiser
         public static void Delete(Boolean fromDisk)
         {
             String fp = sFilePath + "\\" + sFileName;
-            if(File.Exists(fp + ".xml") && fromDisk)
+            if (File.Exists(fp + ".xml") && fromDisk)
             {
                 File.Delete(fp + ".xml");
             }
@@ -142,15 +140,15 @@ namespace Organiser
         }
         public static void Save()
         {
-            if(sFileName != "" && sFilePath != "")
+            if (sFileName != "" && sFilePath != "")
             {
-               
+
                 XmlWriter xmlWriter = XmlWriter.Create(sFilePath + "\\" + sFileName + ".xml");
 
                 xmlWriter.WriteStartDocument();
                 xmlWriter.WriteStartElement("Root");
                 xmlWriter.WriteStartElement("Categories");
-                foreach(Categories c in lsCategories)
+                foreach (Categories c in lsCategories)
                 {
                     xmlWriter.WriteStartElement("Category");
                     xmlWriter.WriteAttributeString("ID", c.getCategoryID().ToString());
@@ -179,6 +177,7 @@ namespace Organiser
                     xmlWriter.WriteAttributeString("Name", j.getJobName());
                     xmlWriter.WriteAttributeString("Desc", j.getJobDesc());
                     xmlWriter.WriteAttributeString("JobType", j.getJobType().getJobTypeID().ToString());
+                    xmlWriter.WriteAttributeString("Deadline", j.getDeadline().ToString());
                     xmlWriter.WriteAttributeString("Attachment", j.getAttachment());
                     xmlWriter.WriteEndElement();
                 }
@@ -187,7 +186,7 @@ namespace Organiser
                 xmlWriter.WriteEndDocument();
                 xmlWriter.Close();
             }
-            
+
         }
         public static void Load()
         {
@@ -203,7 +202,7 @@ namespace Organiser
                     {
                         if (ele.Name == "Category")
                         {
-                            Categories Reb = new Categories(Int16.Parse(ele.Attributes["ID"].InnerText), 
+                            Categories Reb = new Categories(Int16.Parse(ele.Attributes["ID"].InnerText),
                                                                         ele.Attributes["Name"].InnerText,
                                                                         Color.FromArgb(Int32.Parse(ele.Attributes["Color"].InnerText)));
                             lsCategories.Add(Reb);
@@ -223,24 +222,26 @@ namespace Organiser
                                                             ele.Attributes["Name"].InnerText,
                                                             ele.Attributes["Desc"].InnerText,
                                                             findJobType(Int16.Parse(ele.Attributes["JobType"].InnerText)),
+                                                            DateTime.Parse(ele.Attributes["Deadline"].InnerText),
                                                             ele.Attributes["Attachment"].InnerText);
                             lsJobs.Add(rebjb);
                         }
                     }
                 }
-                
+
                 bFileLoaded = true;
-            }  
+            }
         }
         public static void SaveSystemFiles()
         {
-            if(!Directory.Exists(sSystemFolder)) {
+            if (!Directory.Exists(sSystemFolder))
+            {
                 Directory.CreateDirectory(sSystemFolder);
             }
             XmlWriter xmlWriter = XmlWriter.Create(sSystemFolder + "\\Organiser.xml");
             xmlWriter.WriteStartDocument();
             xmlWriter.WriteStartElement("Projects");
-            foreach(Project p in lsPros)
+            foreach (Project p in lsPros)
             {
                 xmlWriter.WriteStartElement("Project");
                 xmlWriter.WriteAttributeString("Name", p.getProName());

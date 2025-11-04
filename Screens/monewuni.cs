@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Organiser.Screens
 {
-    
+
     public partial class monewuni : Form
     {
         private String Action;
@@ -57,7 +49,7 @@ namespace Organiser.Screens
         private void btnSave_Click(object sender, EventArgs e)
         {
             int IDpull = Int16.Parse((cbCate.SelectedItem as ComboboxItem).Value.ToString());
-            if(Validation())
+            if (Validation())
             {
                 if (Action == "Update")
                 {
@@ -80,7 +72,7 @@ namespace Organiser.Screens
 
         private Boolean Validation()
         {
-            if(tbName.Text != "")
+            if (tbName.Text != "")
             {
                 return true;
             }

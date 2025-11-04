@@ -45,6 +45,8 @@
             this.restoreFromBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAddJob = new System.Windows.Forms.Button();
             this.btnDeleteJob = new System.Windows.Forms.Button();
+            this.btnViewJob = new System.Windows.Forms.Button();
+            this.btnUpdateJob = new System.Windows.Forms.Button();
             this.msStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -166,14 +168,14 @@
             // 
             // btnAddJob
             // 
-            this.btnAddJob.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddJob.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddJob.Image = global::Organiser.Properties.Resources.NewJob;
             this.btnAddJob.Location = new System.Drawing.Point(15, 34);
             this.btnAddJob.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddJob.Name = "btnAddJob";
             this.btnAddJob.Size = new System.Drawing.Size(68, 57);
             this.btnAddJob.TabIndex = 1;
-            this.btnAddJob.Text = "Add Job";
+            this.btnAddJob.Text = "Add";
             this.btnAddJob.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAddJob.UseVisualStyleBackColor = true;
             this.btnAddJob.Visible = false;
@@ -182,18 +184,50 @@
             // btnDeleteJob
             // 
             this.btnDeleteJob.Enabled = false;
-            this.btnDeleteJob.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteJob.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteJob.Image = global::Organiser.Properties.Resources.DeleteJob;
-            this.btnDeleteJob.Location = new System.Drawing.Point(89, 34);
+            this.btnDeleteJob.Location = new System.Drawing.Point(237, 34);
             this.btnDeleteJob.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDeleteJob.Name = "btnDeleteJob";
             this.btnDeleteJob.Size = new System.Drawing.Size(68, 57);
             this.btnDeleteJob.TabIndex = 2;
-            this.btnDeleteJob.Text = "Delete Job";
+            this.btnDeleteJob.Text = "Delete";
             this.btnDeleteJob.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnDeleteJob.UseVisualStyleBackColor = true;
             this.btnDeleteJob.Visible = false;
             this.btnDeleteJob.Click += new System.EventHandler(this.btnDeleteJob_Click);
+            // 
+            // btnViewJob
+            // 
+            this.btnViewJob.Enabled = false;
+            this.btnViewJob.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewJob.Image = global::Organiser.Properties.Resources.Search;
+            this.btnViewJob.Location = new System.Drawing.Point(89, 34);
+            this.btnViewJob.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnViewJob.Name = "btnViewJob";
+            this.btnViewJob.Size = new System.Drawing.Size(68, 57);
+            this.btnViewJob.TabIndex = 3;
+            this.btnViewJob.Text = "View";
+            this.btnViewJob.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnViewJob.UseVisualStyleBackColor = true;
+            this.btnViewJob.Visible = false;
+            this.btnViewJob.Click += new System.EventHandler(this.btnViewJob_Click);
+            // 
+            // btnUpdateJob
+            // 
+            this.btnUpdateJob.Enabled = false;
+            this.btnUpdateJob.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateJob.Image = global::Organiser.Properties.Resources.update32;
+            this.btnUpdateJob.Location = new System.Drawing.Point(163, 34);
+            this.btnUpdateJob.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnUpdateJob.Name = "btnUpdateJob";
+            this.btnUpdateJob.Size = new System.Drawing.Size(68, 57);
+            this.btnUpdateJob.TabIndex = 4;
+            this.btnUpdateJob.Text = "Update";
+            this.btnUpdateJob.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnUpdateJob.UseVisualStyleBackColor = true;
+            this.btnUpdateJob.Visible = false;
+            this.btnUpdateJob.Click += new System.EventHandler(this.btnUpdateJob_Click);
             // 
             // momaiscn
             // 
@@ -201,6 +235,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(523, 783);
+            this.Controls.Add(this.btnUpdateJob);
+            this.Controls.Add(this.btnViewJob);
             this.Controls.Add(this.btnDeleteJob);
             this.Controls.Add(this.btnAddJob);
             this.Controls.Add(this.msStrip);
@@ -238,6 +274,8 @@
         private System.Windows.Forms.ToolStripMenuItem createBackupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem restoreFromBackupToolStripMenuItem;
         private System.Windows.Forms.Button btnDeleteJob;
+        private System.Windows.Forms.Button btnViewJob;
+        private System.Windows.Forms.Button btnUpdateJob;
     }
 }
 

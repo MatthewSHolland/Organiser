@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Organiser.Screens
@@ -64,12 +58,12 @@ namespace Organiser.Screens
             Boolean Choi = false;
             if (Backend.createDialog("Are you sure you want to delete?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning).ToString() == "Yes")
             {
-                if (Backend.createDialog("Remove project files from Disk?", "Remove from Disk?", MessageBoxButtons.YesNo, MessageBoxIcon.Question).ToString() == "Yes") { Choi = true; };
+                if (Backend.createDialog("Remove project files from Disk?", "Remove from Disk?", MessageBoxButtons.YesNo, MessageBoxIcon.Question).ToString() == "Yes") { Choi = true; }
                 Backend.Delete(Choi);
             }
             Backend.SaveSystemFiles();
             PopulateDgv();
-            this.Refresh(); 
+            this.Refresh();
         }
 
         private void dgvProView_DoubleClick(object sender, EventArgs e)

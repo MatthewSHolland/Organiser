@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -18,13 +11,17 @@ namespace Organiser.Screens
         Categories C;
         Job jobUpd;
 
-        public monewjob(String action = null, Categories c = null, int id = 0) 
+        public monewjob(String action = null, Categories c = null, int id = 0)
         {
             this.Action = action;
             this.C = c;
             this.ID = id;
             InitializeComponent();
             StartCate();
+            if (action == "View")
+            {
+                startView();
+            }
             StartUpdate();
         }
         public void StartCate()
@@ -55,23 +52,33 @@ namespace Organiser.Screens
                     cbJobType.Items.Add(item);
                     cbJobType.SelectedIndex = 0;
                 }
-            }   
+            }
         }
         public void StartUpdate()
         {
-            if (Action == "Update")
+            if (Action == "Update" || Action == "View")
             {
                 jobUpd = Backend.findJob(ID);
                 if (jobUpd != null)
-                {         
+                {
                     tbJobID.Text = jobUpd.getJobID().ToString();
                     tbJobName.Text = jobUpd.getJobName();
                     rtbDesc.Text = jobUpd.getJobDesc();
                     cbJobType.SelectedIndex = cbJobType.FindString(jobUpd.getJobType().getJobTypeName());
                     cbCategory.SelectedIndex = cbCategory.FindString(jobUpd.getJobType().getJobTypeCate().getCategoryName());
+                    dtpDeadline.Value = jobUpd.getDeadline();
                     tbAttach.Text = jobUpd.getAttachment();
                     tbJobID.Enabled = false;
                 }
+            }
+        }
+
+        public void startView()
+        {
+            foreach (Control con in Controls)
+            {
+                if (con is Button) { continue; }
+                con.Enabled = false;
             }
         }
         public class ComboboxItem
@@ -93,10 +100,10 @@ namespace Organiser.Screens
             int IDpull = Int32.Parse((cbJobType.SelectedItem as ComboboxItem).Value.ToString());
             if (Validation())
             {
-                if(Action != "Update")
+                if (Action == "New")
                 {
                     Job newJob = new Job(Int32.Parse(tbJobID.Text), tbJobName.Text, rtbDesc.Text,
-                    Backend.findJobType(IDpull), tbAttach.Text);
+                    Backend.findJobType(IDpull), dtpDeadline.Value, tbAttach.Text);
                     Backend.lsJobs.Add(newJob);
                 }
                 else
@@ -104,23 +111,32 @@ namespace Organiser.Screens
                     jobUpd.setJobName(tbJobName.Text);
                     jobUpd.setJobDesc(rtbDesc.Text);
                     jobUpd.setJobType(Backend.findJobType(IDpull));
-                    jobUpd.setAttachment(tbAttach.Text);     
+                    jobUpd.setAttachment(tbAttach.Text);
+                    jobUpd.setDeadline(dtpDeadline.Value.Date);
                 }
                 this.Dispose();
             }
         }
         private Boolean Validation()
         {
+            int id;
             if (tbJobID.Text == "" || tbJobName.Text == "" || rtbDesc.Text == "")
             {
                 Backend.createDialog("All Fields Except Attachments MUST be filled in", "Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (Backend.findJob(Int32.Parse(tbJobID.Text)) != null && Action != "Update")
+            if (!int.TryParse(tbJobID.Text, out id))
+            {
+                Backend.createDialog("Please enter a numerical ID", "ID must be numerical", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+
+            }
+            if (Backend.findJob(Int32.Parse(tbJobID.Text)) != null && (Action == "New"))
             {
                 Backend.createDialog("Job with ID: " + tbJobID.Text + " Already Exists", "Job ID Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+
             return true;
         }
         private void tbCancel_Click(object sender, EventArgs e)
